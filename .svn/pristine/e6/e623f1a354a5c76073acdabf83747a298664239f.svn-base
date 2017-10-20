@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>数据库-新增数据库</title>
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <link rel="stylesheet" href="admin/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="admin/css/font-awesome.min.css">
+    <link rel="stylesheet" href="admin/css/ionicons.min.css">
+    <link rel="stylesheet" href="admin/plugins/select2/select2.min.css">
+    <link rel="stylesheet" href="admin/dist/css/AdminLTE.css">
+    <link rel="stylesheet" href="admin/dist/css/skins/_all-skins.min.css">
+    <link rel="stylesheet" href="admin/css/data-common.css">
+    <!--[if IE]>
+      <script src="js/html5shiv.js"></script>
+      <script src="js/excanvas.js"></script>
+      <script src="js/respond.min.js"></script>
+  <![endif]-->
+    <!--[if lte IE 7]>
+    <script type="text/javascript">
+        window.location.href = 'close-ie.html';
+    </script>
+  <![endif]-->
+</head>
+
+<body class="skin-blue sidebar-mini">
+    <div class="wrapper">
+        <div class="content-wrapper" style="margin-left:0;">
+            <section class="content">
+                <div class="nav-tabs-custom">
+                    <ul class="nav nav-tabs">
+                        <li class="active"><a href="">新增数据库</a></li>
+                    </ul>
+                    <div class="box box-widget">
+                        <div class="box-body">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <form class="form-horizontal">
+                                        <div class="box-body">
+                                            <div class="form-group">
+                                                <div class="col-sm-offset-0 col-sm-10">
+                                                    <div class="radio">
+                                                        <label>
+                                                            <input type="radio" id="optionsRadios1" name="optionsRadios"> Oracle
+                                                        </label>
+                                                        <label style="margin-left:11%;">
+                                                            <input type="radio" id="optionsRadios2" name="optionsRadios"> Mysql
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="dataBase1" class="col-sm-2 control-label">数据库名:</label>
+                                                <div class="col-sm-10">
+                                                    <input type="email" class="form-control" id="dataBase1" placeholder="数据库名">
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="ipAddress1" class="col-sm-2 control-label">ip地址:</label>
+                                                <div class="col-sm-10">
+                                                    <input type="password" class="form-control" id="ipAddress1" placeholder="ip地址">
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="dataPort1" class="col-sm-2 control-label">端口:</label>
+                                                <div class="col-sm-10">
+                                                    <input type="password" class="form-control" id="dataPort1" placeholder="端口">
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="col-sm-2 control-label">数据库环境</label>
+                                                <div class="col-sm-10">
+                                                    <select class="form-control">
+                                                        <option>option 1</option>
+                                                        <option>option 2</option>
+                                                        <option>option 3</option>
+                                                        <option>option 4</option>
+                                                        <option>option 5</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="adminAccount1" class="col-sm-2 control-label">账号:</label>
+                                                <div class="col-sm-10">
+                                                    <input type="password" class="form-control" id="adminAccount1" placeholder="账号">
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="inputPassword1" class="col-sm-2 control-label">密码:</label>
+                                                <div class="col-sm-10">
+                                                    <input type="password" class="form-control" id="inputPassword1" placeholder="密码">
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="col-sm-2 control-label">备注:</label>
+                                                <div class="col-sm-10">
+                                                    <textarea class="form-control" rows="3" placeholder="备注"></textarea>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- /.box-body -->
+                                        <div class="box-footer">
+                                            <div class="form-group">
+                                                <div class="col-sm-offset-2 col-sm-10">
+                                                    <a class="btn btn-primary" data-toggle="modal" data-target="#myModal" href="javascript:void(0);">提 交</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- /.box-footer -->
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><span>&times;</span></button>
+                    <h4 class="modal-title text-light-blue" id="myModalLabel">提示</h4>
+                </div>
+                <div class="modal-body">
+                    <p>无法连接数据库，是否重新编辑?</p>
+                </div>
+                <div class="modal-footer" style="text-align:center">
+                    <button type="button" class="btn btn-primary" style="width:100%;" data-dismiss="modal">是</button>
+                </div>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
+    <!-- jQuery 2.2.3 -->
+    <script src="admin/plugins/jQuery/jquery-2.2.3.min.js"></script>
+    <!-- Bootstrap 3.3.6 -->
+    <script src="admin/bootstrap/js/bootstrap.min.js"></script>
+    <!-- 下拉选择 -->
+    <script src="admin/plugins/select2/select2.full.min.js"></script>
+    <!-- AdminLTE App -->
+    <script src="admin/dist/js/app.min.js"></script>
+    <script type="text/javascript">
+    </script>
+</body>
+
+</html>

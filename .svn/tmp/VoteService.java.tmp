@@ -1,0 +1,88 @@
+package com.bl.vote.service;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.bl.vote.domain.Option;
+import com.bl.vote.domain.OptionDao;
+import com.bl.vote.domain.Poll;
+import com.bl.vote.domain.PollDao;
+import com.bl.vote.domain.VoteDao;
+
+@Service
+public class VoteService {
+
+	@Autowired
+	private PollDao pollDao;
+<<<<<<< .mine
+
+	public Iterable<Poll> findAll() {
+||||||| .r59
+=======
+	@Autowired
+	private OptionDao optionDao;
+	@Autowired
+	private VoteDao voteDao;
+	
+	
+	public Iterable<Poll>  findAll(){
+		
+>>>>>>> .r114
+		return pollDao.findAll();
+	}
+
+	public long addPoll(String content) {
+		Poll p = new Poll();
+		p.setContent(content);
+		pollDao.save(p);
+		return p.getId();
+<<<<<<< .mine
+||||||| .r59
+=======
+		
+>>>>>>> .r114
+	}
+<<<<<<< .mine
+||||||| .r59
+=======
+
+            public List<Option> findOptionByPollId(String pollId){
+            	
+            	return optionDao.findOptionByPollId(pollId);
+            }
+
+	
+            public long addOption(long pollId,String content){
+            	
+            	Option o =  new Option();
+            	o.setPollId(pollId);
+            	o.setContent(content);
+            	optionDao.save(o);
+            	return o.getId();
+            	
+            }
+            
+            
+            public void deleteOptionById(long id){
+            	
+            	optionDao.delete(id);
+            }
+            
+            
+          public long editOption(long id,long pollId,String content){
+            	
+            	Option o =  new Option();
+            	o.setId(id);
+            	o.setPollId(pollId);
+            	o.setContent(content);
+            	optionDao.save(o);
+            	return o.getId();
+            	
+            }
+            
+	
+>>>>>>> .r114
+
+}

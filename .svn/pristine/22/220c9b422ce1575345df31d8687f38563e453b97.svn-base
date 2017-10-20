@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>schema查询</title>
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <link rel="stylesheet" href="admin/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="admin/css/font-awesome.min.css">
+    <link rel="stylesheet" href="admin/css/ionicons.min.css">
+    <link rel="stylesheet" href="admin/plugins/select2/select2.min.css">
+    <link rel="stylesheet" href="admin/dist/css/AdminLTE.css">
+    <link rel="stylesheet" href="admin/dist/css/skins/_all-skins.min.css">
+    <link rel="stylesheet" href="admin/css/data-common.css">
+    <!-- DataTables -->
+    <link rel="stylesheet" href="admin/plugins/datatables/dataTables.bootstrap.css">
+    <!--[if IE]>
+      <script src="js/html5shiv.js"></script>
+      <script src="js/excanvas.js"></script>
+      <script src="js/respond.min.js"></script>
+  <![endif]-->
+    <!--[if lte IE 7]>
+    <script type="text/javascript">
+        window.location.href = 'close-ie.html';
+    </script>
+  <![endif]-->
+</head>
+
+<body class="skin-blue sidebar-mini">
+    <div class="wrapper">
+        <!-- Content Wrapper. Contains page content -->
+        <div class="content-wrapper" style="margin-left:0;">
+            <!-- Content Header (Page header) -->
+            <section class="content-header">
+                <div class="row">
+                    <div class="col-md-6">
+                        <form class="form-horizontal">
+                            <div class="box-body">
+                                <div class="form-group">
+                                    <label for="adminAccount1" class="col-sm-2 control-label">数据库名:</label>
+                                    <div class="col-sm-5">
+                                        <div class="input-group">
+                                            <input type="text" class="form-control" placeholder="请输入数据库关键字">
+                                            <span class="input-group-btn">
+                                                <a class="btn btn-primary btn-flat" type="button"  data-toggle="modal" data-target="#myModal1" href="javascript:void(0);"><i class="fa fa-search"></i></a>
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="col-md-6">
+                        <form class="form-horizontal">
+                            <div class="box-body">
+                                <div class="checkbox">
+                                    <label>
+                                        <input type="checkbox"> 只显示表数量发生变更的schema
+                                    </label>
+                                </div>
+                            </div>
+                            <!-- /.box-body -->
+                        </form>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <form class="form-horizontal">
+                            <div class="box-body">
+                                <div class="form-group">
+                                    <label for="adminAccount1" class="col-sm-2 control-label">中台:</label>
+                                    <div class="col-sm-5">
+                                        <div class="input-group">
+                                            <input type="text" class="form-control" placeholder="请输入中台关键字">
+                                            <span class="input-group-btn">
+                                                <a class="btn btn-primary btn-flat" type="button"  data-toggle="modal" data-target="#myModal2" href="javascript:void(0);"><i class="fa fa-search"></i></a>
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="col-md-6">
+                        <form class="form-horizontal">
+                            <div class="box-body">
+                                <div class="checkbox">
+                                    <label>
+                                        <input type="checkbox"> 只显示存在表注释缺失的scheam
+                                    </label>
+                                </div>
+                            </div>
+                            <!-- /.box-body -->
+                        </form>
+                    </div>
+                </div>
+            </section>
+            <section class="content">
+                <div class="row">
+                    <div class="col-xs-12">
+                        <div class="box box-primary">
+                            <div class="box-body">
+                                <table id="example2" class="table table-bordered table-hover table-striped">
+                                    <thead>
+                                        <tr>
+                                            <th>序号</th>
+                                            <th>schema</th>
+                                            <th>数据库名</th>
+                                            <th>所属中台</th>
+                                            <th>IP</th>
+                                            <th>库类型</th>
+                                            <th>新增表</th>
+                                            <th>删除表</th>
+                                            <th>表注释缺失</th>
+                                            <th>详情</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>1</td>
+                                            <td>radmp</td>
+                                            <td>sysMangement</td>
+                                            <td>综合管理</td>
+                                            <td>192.168.29.25</td>
+                                            <td>oracle</td>
+                                            <td class="text-red"><i class="fa text-red fa-long-arrow-up"></i>&nbsp;&nbsp;1</td>
+                                            <td class="text-green"><i class="fa text-green fa-long-arrow-down"></i>&nbsp;&nbsp;2</td>
+                                            <td>4</td>
+                                            <td><a href="javascript:void(0);">查看</a><a href="javascript:void(0);" class="leftspace">对比</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>1</td>
+                                            <td>radmp</td>
+                                            <td>sysMangement</td>
+                                            <td>综合管理</td>
+                                            <td>192.168.29.25</td>
+                                            <td>oracle</td>
+                                            <td class="text-red"><i class="fa text-red fa-long-arrow-up"></i>&nbsp;&nbsp;1</td>
+                                            <td class="text-green"><i class="fa text-green fa-long-arrow-down"></i>&nbsp;&nbsp;2</td>
+                                            <td>4</td>
+                                            <td><a href="javascript:void(0);">查看</a><a href="javascript:void(0);" class="leftspace">对比</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>1</td>
+                                            <td>radmp</td>
+                                            <td>sysMangement</td>
+                                            <td>综合管理</td>
+                                            <td>192.168.29.25</td>
+                                            <td>oracle</td>
+                                            <td class="text-red"><i class="fa text-red fa-long-arrow-up"></i>&nbsp;&nbsp;1</td>
+                                            <td class="text-green"><i class="fa text-green fa-long-arrow-down"></i>&nbsp;&nbsp;2</td>
+                                            <td>4</td>
+                                            <td><a href="javascript:void(0);">查看</a><a href="javascript:void(0);" class="leftspace">对比</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>1</td>
+                                            <td>radmp</td>
+                                            <td>sysMangement</td>
+                                            <td>综合管理</td>
+                                            <td>192.168.29.25</td>
+                                            <td>oracle</td>
+                                            <td class="text-red"><i class="fa text-red fa-long-arrow-up"></i>&nbsp;&nbsp;1</td>
+                                            <td class="text-green"><i class="fa text-green fa-long-arrow-down"></i>&nbsp;&nbsp;2</td>
+                                            <td>4</td>
+                                            <td><a href="javascript:void(0);">查看</a><a href="javascript:void(0);" class="leftspace">对比</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>1</td>
+                                            <td>radmp</td>
+                                            <td>sysMangement</td>
+                                            <td>综合管理</td>
+                                            <td>192.168.29.25</td>
+                                            <td>oracle</td>
+                                            <td class="text-red"><i class="fa text-red fa-long-arrow-up"></i>&nbsp;&nbsp;1</td>
+                                            <td class="text-green"><i class="fa text-green fa-long-arrow-down"></i>&nbsp;&nbsp;2</td>
+                                            <td>4</td>
+                                            <td><a href="javascript:void(0);">查看</a><a href="javascript:void(0);" class="leftspace">对比</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>1</td>
+                                            <td>radmp</td>
+                                            <td>sysMangement</td>
+                                            <td>综合管理</td>
+                                            <td>192.168.29.25</td>
+                                            <td>oracle</td>
+                                            <td class="text-red"><i class="fa text-red fa-long-arrow-up"></i>&nbsp;&nbsp;1</td>
+                                            <td class="text-green"><i class="fa text-green fa-long-arrow-down"></i>&nbsp;&nbsp;2</td>
+                                            <td>4</td>
+                                            <td><a href="javascript:void(0);">查看</a><a href="javascript:void(0);" class="leftspace">对比</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>1</td>
+                                            <td>radmp</td>
+                                            <td>sysMangement</td>
+                                            <td>综合管理</td>
+                                            <td>192.168.29.25</td>
+                                            <td>oracle</td>
+                                            <td class="text-red"><i class="fa text-red fa-long-arrow-up"></i>&nbsp;&nbsp;1</td>
+                                            <td class="text-green"><i class="fa text-green fa-long-arrow-down"></i>&nbsp;&nbsp;2</td>
+                                            <td>4</td>
+                                            <td><a href="javascript:void(0);">查看</a><a href="javascript:void(0);" class="leftspace">对比</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>1</td>
+                                            <td>radmp</td>
+                                            <td>sysMangement</td>
+                                            <td>综合管理</td>
+                                            <td>192.168.29.25</td>
+                                            <td>oracle</td>
+                                            <td class="text-red"><i class="fa text-red fa-long-arrow-up"></i>&nbsp;&nbsp;1</td>
+                                            <td class="text-green"><i class="fa text-green fa-long-arrow-down"></i>&nbsp;&nbsp;2</td>
+                                            <td>4</td>
+                                            <td><a href="javascript:void(0);">查看</a><a href="javascript:void(0);" class="leftspace">对比</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>1</td>
+                                            <td>radmp</td>
+                                            <td>sysMangement</td>
+                                            <td>综合管理</td>
+                                            <td>192.168.29.25</td>
+                                            <td>oracle</td>
+                                            <td class="text-red"><i class="fa text-red fa-long-arrow-up"></i>&nbsp;&nbsp;1</td>
+                                            <td class="text-green"><i class="fa text-green fa-long-arrow-down"></i>&nbsp;&nbsp;2</td>
+                                            <td>4</td>
+                                            <td><a href="javascript:void(0);">查看</a><a href="javascript:void(0);" class="leftspace">对比</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>1</td>
+                                            <td>radmp</td>
+                                            <td>sysMangement</td>
+                                            <td>综合管理</td>
+                                            <td>192.168.29.25</td>
+                                            <td>oracle</td>
+                                            <td class="text-red"><i class="fa text-red fa-long-arrow-up"></i>&nbsp;&nbsp;1</td>
+                                            <td class="text-green"><i class="fa text-green fa-long-arrow-down"></i>&nbsp;&nbsp;2</td>
+                                            <td>4</td>
+                                            <td><a href="javascript:void(0);">查看</a><a href="javascript:void(0);" class="leftspace">对比</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>1</td>
+                                            <td>radmp</td>
+                                            <td>sysMangement</td>
+                                            <td>综合管理</td>
+                                            <td>192.168.29.25</td>
+                                            <td>oracle</td>
+                                            <td class="text-red"><i class="fa text-red fa-long-arrow-up"></i>&nbsp;&nbsp;1</td>
+                                            <td class="text-green"><i class="fa text-green fa-long-arrow-down"></i>&nbsp;&nbsp;2</td>
+                                            <td>4</td>
+                                            <td><a href="javascript:void(0);">查看</a><a href="javascript:void(0);" class="leftspace">对比</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>1</td>
+                                            <td>radmp</td>
+                                            <td>sysMangement</td>
+                                            <td>综合管理</td>
+                                            <td>192.168.29.25</td>
+                                            <td>oracle</td>
+                                            <td class="text-red"><i class="fa text-red fa-long-arrow-up"></i>&nbsp;&nbsp;1</td>
+                                            <td class="text-green"><i class="fa text-green fa-long-arrow-down"></i>&nbsp;&nbsp;2</td>
+                                            <td>4</td>
+                                            <td><a href="javascript:void(0);">查看</a><a href="javascript:void(0);" class="leftspace">对比</a></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <!-- /.box-body -->
+                        </div>
+                        <!-- /.box -->
+                    </div>
+                    <!-- /.col -->
+                </div>
+                <!-- /.row -->
+            </section>
+        </div>
+        <!-- /.content-wrapper -->
+    </div>
+    <div class="modal fade" id="myModal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><span>&times;</span></button>
+                    <div class="row">
+                        <form class="form-horizontal">
+                            <div class="box-body">
+                                <div class="form-group">
+                                    <div class="col-sm-offset-1">
+                                        <label for="adminAccount1" class="col-sm-3 control-label">数据库名:</label>
+                                        <div class="col-sm-7">
+                                            <div class="input-group">
+                                                <input type="text" class="form-control" placeholder="请输入数据库关键字">
+                                                <span class="input-group-btn">
+                                                <button class="btn btn-primary btn-flat" type="button"><i class="fa fa-search"></i></button>
+                                            </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="modal-body">
+                    <section class="content">
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <div class="box box-primary">
+                                    <div class="box-body">
+                                        <table id="example3" class="table table-bordered table-hover table-striped">
+                                            <thead>
+                                                <tr>
+                                                    <th>选择</th>
+                                                    <th>数据库名</th>
+                                                    <th>ip地址</th>
+                                                    <th>数据库类型</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>
+                                                        <div class="checkbox">
+                                                            <input type="checkbox">
+                                                        </div>
+                                                    </td>
+                                                    <td>aaaaa</td>
+                                                    <td>192.168.1.1</td>
+                                                    <td>mysql</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <div class="checkbox">
+                                                            <input type="checkbox">
+                                                        </div>
+                                                    </td>
+                                                    <td>aaaaa</td>
+                                                    <td>192.168.1.1</td>
+                                                    <td>mysql</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <div class="checkbox">
+                                                            <input type="checkbox">
+                                                        </div>
+                                                    </td>
+                                                    <td>aaaaa</td>
+                                                    <td>192.168.1.1</td>
+                                                    <td>mysql</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <div class="checkbox">
+                                                            <input type="checkbox">
+                                                        </div>
+                                                    </td>
+                                                    <td>aaaaa</td>
+                                                    <td>192.168.1.1</td>
+                                                    <td>mysql</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <div class="checkbox">
+                                                            <input type="checkbox">
+                                                        </div>
+                                                    </td>
+                                                    <td>aaaaa</td>
+                                                    <td>192.168.1.1</td>
+                                                    <td>mysql</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <div class="checkbox">
+                                                            <input type="checkbox">
+                                                        </div>
+                                                    </td>
+                                                    <td>aaaaa</td>
+                                                    <td>192.168.1.1</td>
+                                                    <td>mysql</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <div class="checkbox">
+                                                            <input type="checkbox">
+                                                        </div>
+                                                    </td>
+                                                    <td>aaaaa</td>
+                                                    <td>192.168.1.1</td>
+                                                    <td>mysql</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <div class="checkbox">
+                                                            <input type="checkbox">
+                                                        </div>
+                                                    </td>
+                                                    <td>aaaaa</td>
+                                                    <td>192.168.1.1</td>
+                                                    <td>mysql</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <div class="checkbox">
+                                                            <input type="checkbox">
+                                                        </div>
+                                                    </td>
+                                                    <td>aaaaa</td>
+                                                    <td>192.168.1.1</td>
+                                                    <td>mysql</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <div class="checkbox">
+                                                            <input type="checkbox">
+                                                        </div>
+                                                    </td>
+                                                    <td>aaaaa</td>
+                                                    <td>192.168.1.1</td>
+                                                    <td>mysql</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <div class="checkbox">
+                                                            <input type="checkbox">
+                                                        </div>
+                                                    </td>
+                                                    <td>aaaaa</td>
+                                                    <td>192.168.1.1</td>
+                                                    <td>mysql</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <!-- /.box-body -->
+                                </div>
+                                <!-- /.box -->
+                            </div>
+                            <!-- /.col -->
+                        </div>
+                        <!-- /.row -->
+                    </section>
+                    <!-- /.content -->
+                </div>
+                <div class="modal-footer" style="text-align:center">
+                    <button type="button" class="btn btn-primary" style="width:100%;" data-dismiss="modal">提交</button>
+                </div>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
+    <div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel2" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><span>&times;</span></button>
+                    <h4 class="modal-title text-light-blue" id="myModalLabel2">选择中台</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <form class="form-horizontal">
+                            <div class="box-body">
+                                <div class="form-group">
+                                    <div class="col-sm-offset-2">
+                                    <label class="col-sm-3 control-label">促销营销大组</label>
+                                    <div class="col-sm-5">
+                                        <select class="form-control">
+                                            <option>option 1</option>
+                                            <option>option 2</option>
+                                            <option>option 3</option>
+                                            <option>option 4</option>
+                                            <option>option 5</option>
+                                        </select>
+                                    </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                        <form class="form-horizontal">
+                            <div class="box-body">
+                                <div class="form-group">
+                                <div class="col-sm-offset-2">
+                                    <label class="col-sm-3 control-label">商品中台</label>
+                                    <div class="col-sm-5">
+                                        <select class="form-control">
+                                            <option>option 1</option>
+                                            <option>option 2</option>
+                                            <option>option 3</option>
+                                            <option>option 4</option>
+                                            <option>option 5</option>
+                                        </select>
+                                    </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="modal-footer" style="text-align:center">
+                    <button type="button" class="btn btn-primary" style="width:100%;" data-dismiss="modal">确定</button>
+                </div>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
+    <!-- jQuery 2.2.3 -->
+    <script src="admin/plugins/jQuery/jquery-2.2.3.min.js"></script>
+    <!-- Bootstrap 3.3.6 -->
+    <script src="admin/bootstrap/js/bootstrap.min.js"></script>
+    <!-- 下拉选择 -->
+    <script src="admin/plugins/select2/select2.full.min.js"></script>
+    <!-- AdminLTE App -->
+    <script src="admin/dist/js/app.min.js"></script>
+    <!-- DataTables -->
+    <script src="admin/plugins/datatables/jquery.dataTables.min.js"></script>
+    <script src="admin/plugins/datatables/dataTables.bootstrap.min.js"></script>
+    <script type="text/javascript">
+    $(function() {
+        $('#example2').DataTable({
+            "paging": true,
+            "lengthChange": false,
+            "searching": false,
+            "ordering": false,
+            "info": true,
+            "autoWidth": false
+        });
+        $('#example3').DataTable({
+            "paging": true,
+            "lengthChange": false,
+            "searching": false,
+            "ordering": false,
+            "info": true,
+            "autoWidth": false
+        });
+
+    });
+    </script>
+</body>
+
+</html>

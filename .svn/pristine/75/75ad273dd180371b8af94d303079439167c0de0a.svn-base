@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>BUG明细</title>
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <link rel="stylesheet" href="admin/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="admin/css/font-awesome.min.css">
+    <link rel="stylesheet" href="admin/css/ionicons.min.css">
+    <link rel="stylesheet" href="admin/plugins/select2/select2.min.css">
+    <link rel="stylesheet" href="admin/dist/css/AdminLTE.css">
+    <link rel="stylesheet" href="admin/plugins/ztree/metro.css">
+    <link rel="stylesheet" href="admin/dist/css/skins/_all-skins.min.css">
+    <link rel="stylesheet" href="admin/css/data-common.css">
+    <!-- DataTables -->
+    <link rel="stylesheet" href="admin/plugins/datatables/dataTables.bootstrap.css">
+    <!--[if IE]>
+      <script src="js/html5shiv.js"></script>
+      <script src="js/excanvas.js"></script>
+      <script src="js/respond.min.js"></script>
+  <![endif]-->
+    <!--[if lte IE 7]>
+    <script type="text/javascript">
+        window.location.href = 'close-ie.html';
+    </script>
+  <![endif]-->
+</head>
+
+<body class="skin-blue sidebar-mini">
+    <div class="wrapper">
+        <!-- Content Wrapper. Contains page content -->
+        <div class="content-wrapper" style="margin-left:0;">
+            <!-- Content Header (Page header) -->
+            <section class="content">
+                <!-- Custom tabs (Charts with tabs)-->
+                <div class="nav-tabs-custom">
+                    <!-- Tabs within a box -->
+                    <ul class="nav nav-tabs">
+                        <li class="active"><a href="#revenue-chart" data-toggle="tab">迭代bug</a></li>
+                        <li><a href="#sales-chart" data-toggle="tab">未解决bug</a></li>
+                    </ul>
+                    <div class="tab-content no-padding">
+                        <!-- Morris chart - Sales -->
+                        <div class="chart tab-pane active" id="revenue-chart" style="">
+                            <div class="row">
+                                <div class="col-xs-12">                                                                     
+                                    <div class="box box-primary topspace">
+                                        <div class="box-body">
+                                            <table id="example2" class="table table-bordered table-hover table-striped">
+                                                <thead>
+                                                    <tr>
+                                                        <th>JIRI编号</th>
+                                                        <th>优先级</th>
+                                                        <th>BUG主题</th>
+                                                        <th>创建时间</th>
+                                                        <th>经办人</th>
+                                                        <th>责任人</th>                                                     
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td>BYT-111</td>
+                                                        <td>中等</td>
+                                                        <td>bug随便写</td>
+                                                        <td>12:00:00</td>
+                                                        <td>李定军</td>
+                                                        <td>李定军</td>                                                       
+                                                    </tr>
+                                                   <tr>
+                                                        <td>BYT-111</td>
+                                                        <td>中等</td>
+                                                        <td>bug随便写</td>
+                                                        <td>12:00:00</td>
+                                                        <td>李定军</td>
+                                                        <td>李定军</td>                                                       
+                                                    </tr>
+                                                    <tr>
+                                                        <td>BYT-111</td>
+                                                        <td>中等</td>
+                                                        <td>bug随便写</td>
+                                                        <td>12:00:00</td>
+                                                        <td>李定军</td>
+                                                        <td>李定军</td>                                                       
+                                                    </tr>
+                                                   <tr>
+                                                        <td>BYT-111</td>
+                                                        <td>中等</td>
+                                                        <td>bug随便写</td>
+                                                        <td>12:00:00</td>
+                                                        <td>李定军</td>
+                                                        <td>李定军</td>                                                       
+                                                    </tr>
+                                                    <tr>
+                                                        <td>BYT-111</td>
+                                                        <td>中等</td>
+                                                        <td>bug随便写</td>
+                                                        <td>12:00:00</td>
+                                                        <td>李定军</td>
+                                                        <td>李定军</td>                                                       
+                                                    </tr>
+                                                    <tr>
+                                                        <td>BYT-111</td>
+                                                        <td>中等</td>
+                                                        <td>bug随便写</td>
+                                                        <td>12:00:00</td>
+                                                        <td>李定军</td>
+                                                        <td>李定军</td>                                                       
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                        <!-- /.box-body -->
+                                    </div>
+                                    <!-- /.box -->
+                                </div>
+                                <!-- /.col -->
+                            </div>
+                            <!-- /.row -->
+                        </div>
+                        <div class="chart tab-pane" id="sales-chart" style="">
+                            <div class="row">
+                                
+                                <div class="col-xs-12">
+                                    <div class="box box-primary topspace">
+                                        <div class="box-body">
+                                            <table id="example3" class="table table-bordered table-hover table-striped">
+                                                <thead>
+                                                    <tr>
+                                                        <th>JIRI编号</th>
+                                                        <th>优先级</th>
+                                                        <th>BUG主题</th>
+                                                        <th>创建时间</th>
+                                                        <th>经办人</th>
+                                                        <th>责任人</th>                                                     
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td>BYT-111</td>
+                                                        <td>中等</td>
+                                                        <td>bug随便写</td>
+                                                        <td>12:00:00</td>
+                                                        <td>李定军</td>
+                                                        <td>李定军</td>                                                       
+                                                    </tr>
+                                                   <tr>
+                                                        <td>BYT-111</td>
+                                                        <td>中等</td>
+                                                        <td>bug随便写</td>
+                                                        <td>12:00:00</td>
+                                                        <td>李定军</td>
+                                                        <td>李定军</td>                                                       
+                                                    </tr>
+                                                    <tr>
+                                                        <td>BYT-111</td>
+                                                        <td>中等</td>
+                                                        <td>bug随便写</td>
+                                                        <td>12:00:00</td>
+                                                        <td>李定军</td>
+                                                        <td>李定军</td>                                                       
+                                                    </tr>
+                                                   <tr>
+                                                        <td>BYT-111</td>
+                                                        <td>中等</td>
+                                                        <td>bug随便写</td>
+                                                        <td>12:00:00</td>
+                                                        <td>李定军</td>
+                                                        <td>李定军</td>                                                       
+                                                    </tr>
+                                                    <tr>
+                                                        <td>BYT-111</td>
+                                                        <td>中等</td>
+                                                        <td>bug随便写</td>
+                                                        <td>12:00:00</td>
+                                                        <td>李定军</td>
+                                                        <td>李定军</td>                                                       
+                                                    </tr>
+                                                    <tr>
+                                                        <td>BYT-111</td>
+                                                        <td>中等</td>
+                                                        <td>bug随便写</td>
+                                                        <td>12:00:00</td>
+                                                        <td>李定军</td>
+                                                        <td>李定军</td>                                                       
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                        <!-- /.box-body -->
+                                    </div>
+                                    <!-- /.box -->
+                                </div>
+                                <!-- /.col -->
+                            </div>
+                            <!-- /.row -->
+                        </div>
+                    </div>
+                </div>
+                <!-- /.nav-tabs-custom -->
+            </section>
+            <!-- /.content -->
+        </div>
+        <!-- /.content-wrapper -->
+    </div>
+    <!-- jQuery 2.2.3 -->
+    <script src="admin/plugins/jQuery/jquery-2.2.3.min.js"></script>
+    <!-- Bootstrap 3.3.6 -->
+    <script src="admin/bootstrap/js/bootstrap.min.js"></script>
+    <!-- AdminLTE App -->
+    <script src="admin/dist/js/app.min.js"></script>
+    <!-- DataTables -->
+    <script src="admin/plugins/datatables/jquery.dataTables.min.js"></script>
+    <script src="admin/plugins/datatables/dataTables.bootstrap.min.js"></script>
+    <script type="text/javascript">
+    $(function() {
+                $('#example2').DataTable({
+                    "paging": true,
+                    "lengthChange": false,
+                    "searching": false,
+                    "ordering": false,
+                    "info": true,
+                    "autoWidth": false
+                });
+                $('#example3').DataTable({
+                    "paging": true,
+                    "lengthChange": false,
+                    "searching": false,
+                    "ordering": false,
+                    "info": true,
+                    "autoWidth": false
+                });
+            })
+    </script>
+</body>
+
+</html>

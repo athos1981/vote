@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"></meta>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"></meta>
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport"></meta>
+    <!-- DataTables -->
+    <link rel="stylesheet" href="../admin/plugins/datatables/dataTables.bootstrap.css"/>
+    <link rel="stylesheet" href="../admin/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../admin/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../admin/css/ionicons.min.css">
+    <link rel="stylesheet" href="../admin/plugins/select2/select2.min.css">
+    <link rel="stylesheet" href="../admin/dist/css/AdminLTE.css">
+    <link rel="stylesheet" href="../admin/plugins/ztree/metro.css">
+    <link rel="stylesheet" href="../admin/dist/css/skins/_all-skins.min.css">
+    <link rel="stylesheet" href="../admin/css/data-common.css">
+</head>
+     <table id="example2" class="table table-bordered table-hover table-striped">
+         <thead>
+             <tr>
+                 <th>序号</th>
+                 <th>名称</th>
+                 <th>选项</th>
+                 <th>测试</th>
+             </tr>
+         </thead>
+         <tbody>
+         </tbody>
+     </table>
+    <!-- DataTables -->
+    <!-- jQuery 2.2.3 -->
+	<script src="../admin/plugins/jQuery/jquery-2.2.3.min.js"></script>
+	<!-- Bootstrap 3.3.6 -->
+	<script src="../admin/bootstrap/js/bootstrap.min.js"></script>
+	<!-- AdminLTE App -->
+	<script src="../admin/dist/js/app.min.js"></script>
+    <script src="../admin/plugins/datatables/jquery.dataTables.min.js"></script>
+    <script src="../admin/plugins/datatables/dataTables.bootstrap.min.js"></script>
+    <script type="text/javascript">
+    $(function() {
+    	renderTable();
+    });
+    
+    function renderTable(){
+    	$.ajax({
+            type: "get",
+            async: true,
+            url: "../findTestInfoPage",
+            dataType: "json",
+            success: function(data) {
+		        $('#example2').DataTable({
+		            "paging": true,
+		            "lengthChange": false,
+		            "pageLength": 1,
+		            "searching": false,
+		            "ordering": false,
+		            "info": true,
+		            "autoWidth": false,
+		            "columns": [
+		                      {data: "id"},
+		                      {data: "name"},
+		                      {data: "work"},
+		                      {data: function (e) {//这里给最后一列返回一个操作列表
+		                            //e是得到的json数组中的一个item ，可以用于控制标签的属性。
+		                            alert(e.level);
+		                            return '<a class="btn btn-default btn-xs show-detail-json"><i class="icon-edit"></i>显示详细</a>';
+		                        }}
+		                  ],
+		            "data":data.content,
+		        	"oLanguage" : { // 国际化配置
+		    			"sProcessing" : "正在获取数据，请稍后...",
+		    			"sLengthMenu" : "显示 _MENU_ 条",
+		    			"sZeroRecords" : "没有找到数据",
+		    			"sInfo" :  "当前显示 _START_ 到 _END_ 条，共 _TOTAL_ 条记录",
+		    			"sInfoEmpty" : "",
+		    			"sInfoFiltered" : "(全部记录数 _MAX_ 条)",
+		    			"sInfoPostFix" : "",
+		    			"sSearch" : "搜索",
+		    			"sUrl" : "",
+		    			"oPaginate" : {
+		    				"sFirst" : "第一页",
+		    				"sPrevious" : "上一页",
+		    				"sNext" : "下一页",
+		    				"sLast" : "最后一页"
+		    			}
+		    		}
+		        }); 
+            },
+            error: function(errorMsg) {
+                alert("请求数据失败!");
+            }
+        });
+    	
+    }
+</script>
+
+</html>

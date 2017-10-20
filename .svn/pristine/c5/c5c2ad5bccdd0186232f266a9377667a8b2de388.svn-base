@@ -1,0 +1,12 @@
+package com.gemini.domain;
+
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.PagingAndSortingRepository;
+
+public interface TestInfoRepository extends PagingAndSortingRepository<TestInfo, Long> {
+	
+	@Query(value="select tt from testInfo tt")
+	public Page<TestInfo> findByNativeQuery(Pageable page);
+}

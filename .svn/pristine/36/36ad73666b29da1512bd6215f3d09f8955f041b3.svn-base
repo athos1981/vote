@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8"></meta>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"></meta>
+    <title>迭代管理-迭代配置</title>
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport"></meta>
+    <link rel="stylesheet" href="../admin/bootstrap/css/bootstrap.min.css"></link>
+    <link rel="stylesheet" href="../admin/css/font-awesome.min.css"></link>
+    <link rel="stylesheet" href="../admin/css/ionicons.min.css"></link>
+    <link rel="stylesheet" href="../admin/plugins/select2/select2.min.css"></link>
+    <link rel="stylesheet" href="../admin/plugins/datetimepicker/bootstrap-datetimepicker.css"></link>
+    <link rel="stylesheet" href="../admin/dist/css/AdminLTE.css"></link>
+    <link rel="stylesheet" href="../admin/dist/css/skins/_all-skins.min.css"></link>
+    <link rel="stylesheet" href="../admin/css/data-common.css"></link>
+    <!--[if IE]>
+      <script src="js/html5shiv.js"></script>
+      <script src="js/excanvas.js"></script>
+      <script src="js/respond.min.js"></script>
+  <![endif]-->
+    <!--[if lte IE 7]>
+    <script type="text/javascript">
+        window.location.href = 'close-ie.html';
+    </script>
+  <![endif]-->
+</head>
+
+<body class="skin-blue sidebar-mini">
+    <div class="wrapper">
+        <div class="content-wrapper" style="margin-left:0;">
+            <section class="content">
+                <div class="nav-tabs-custom">
+                    <ul class="nav nav-tabs">
+                        <li class="active"><a href="">新增迭代</a></li>
+                    </ul>
+                    <div class="box box-widget">
+                        <div class="box-body">
+                            <div class="row">
+                                <div class="col-md-6">
+                       				 <form class="form-horizontal" th:action="@{/iterConfiguration/updateSprintVersion}" th:object="${sprintVersion}" th:method="post" id="sprint" >
+                                        <div class="box-body">
+                                            <div class="form-group">
+                                                <label class="col-sm-2 control-label">选择迭代:</label>
+                                                <div class="col-sm-10 nop">
+                                                    <select class="form-control select2" style="width: 100%;"  name ="sprintId" id = "sprintId">
+                                                       <option value="null" >请选择</option>
+                                                       <option th:each="tt: ${sprintversionList}" th:value="${tt.sprintId}" th:text="${tt.sprintName}" >
+                                                    	</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        	<!--   控件不能直接设置值，故将参数提出来提交 -->
+                                           	<input type ="hidden" name ="startTime" id="startTime" value=""  />
+                                           	<input type ="hidden" name ="endTime"   id="endTime" value=""  />
+                                           	<input type ="hidden" name ="requestEndTime" id="requestEndTime" value="" />
+                                           	<input type ="hidden" name ="planTime" id="planTime" value=""  />
+                                           	<input type ="hidden" name ="sitTime" id="sitTime" value=""  />
+                                           	<input type ="hidden" name ="preTime" id="preTime" value=""  />
+                                           	<input type ="hidden" name ="prdTime"  id="prdTime" value=""  />
+                                            	
+                                            <div class="form-group">
+                                                <label for="dtp_input2" class="col-sm-2 control-label">开始时间</label>
+                                                <div class="input-group date form_date col-sm-10" data-date="" data-date-format="yyyy-mm-dd" data-link-field="dtp_input2" data-link-format="yyyy-mm-dd">
+                                                    <input class="form-control bg-wihite" size="16" type="text"  id = "startTimeCP" value=""  />
+                                                    <span class="input-group-addon"><span class="glyphicon glyphicon-remove"></span></span>
+                                                    <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
+                                                </div>
+                                                <input type="hidden" id="dtp_input2" value="" />
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="dtp_input2" class="col-sm-2 control-label">结束时间</label>
+                                                <div class="input-group date form_date col-sm-10" data-date="" data-date-format="yyyy-mm-dd" data-link-field="dtp_input2" data-link-format="yyyy-mm-dd">
+                                                    <input class="form-control bg-wihite" size="16" type="text" id="endTimeCP" name="endTimeCP" value="" readonly="true" />
+                                                    <span class="input-group-addon"><span class="glyphicon glyphicon-remove"></span></span>
+                                                    <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
+                                                </div>
+                                                <input type="hidden" id="dtp_input2" value="" />
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="dtp_input2" class="col-sm-2 control-label">需求收口统计日</label>
+                                                <div class="input-group date form_date col-sm-10" data-date="" data-date-format="yyyy-mm-dd" data-link-field="dtp_input2" data-link-format="yyyy-mm-dd">
+                                                    <input class="form-control bg-wihite" size="16" type="text"  id="requestEndTimeCP" value="" readonly ="true" />
+                                                    <span class="input-group-addon"><span class="glyphicon glyphicon-remove"></span></span>
+                                                    <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
+                                                </div>
+                                                <input type="hidden" id="dtp_input2" value="" />
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="dtp_input2" class="col-sm-2 control-label">迭代排期统计日</label>
+                                                <div class="input-group date form_date col-sm-10" data-date="" data-date-format="yyyy-mm-dd" data-link-field="dtp_input2" data-link-format="yyyy-mm-dd">
+                                                    <input class="form-control bg-wihite" size="16" type="text"  id="planTimeCP" value="" readonly ="true" />
+                                                    <span class="input-group-addon"><span class="glyphicon glyphicon-remove"></span></span>
+                                                    <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
+                                                </div>
+                                                <input type="hidden" id="dtp_input2" value="" />
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="dtp_input2" class="col-sm-2 control-label">sit提测统计日</label>
+                                                <div class="input-group date form_date col-sm-10" data-date="" data-date-format="yyyy-mm-dd" data-link-field="dtp_input2" data-link-format="yyyy-mm-dd">
+                                                    <input class="form-control bg-wihite" size="16" type="text" value=""  id="sitTimeCP" readonly ="true" />
+                                                    <span class="input-group-addon"><span class="glyphicon glyphicon-remove"></span></span>
+                                                    <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
+                                                </div>
+                                                <input type="hidden" id="dtp_input2" value="" />
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="dtp_input2" class="col-sm-2 control-label">pre发布统计日</label>
+                                                <div class="input-group date form_date col-sm-10" data-date="" data-date-format="yyyy-mm-dd" data-link-field="dtp_input2" data-link-format="yyyy-mm-dd">
+                                                    <input class="form-control bg-wihite" size="16" type="text"  id="preTimeCP" value="" readonly ="true" />
+                                                    <span class="input-group-addon"><span class="glyphicon glyphicon-remove"></span></span>
+                                                    <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
+                                                </div>
+                                                <input type="hidden" id="dtp_input2" value="" />
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="dtp_input2" class="col-sm-2 control-label">迭代发布统计日</label>
+                                                <div class="input-group date form_date col-sm-10" data-date="" data-date-format="yyyy-mm-dd" data-link-field="dtp_input2" data-link-format="yyyy-mm-dd">
+                                                    <input class="form-control bg-wihite" size="16" type="text" id="prdTimeCP"  value="" readonly ="true" />
+                                                    <span class="input-group-addon"><span class="glyphicon glyphicon-remove"></span></span>
+                                                    <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
+                                                </div>
+                                                <input type="hidden" id="dtp_input2" value="" />
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="col-sm-2 control-label">选择解决版本:</label>
+                                                <div class="col-sm-10 nop">
+                                                    <select class="form-control select2" style="width: 100%;" name="solveVersionId" id ="solveVersionIdCP">
+                                                         <option value="null" >请选择</option>
+                                                        <option th:each="tt:${solveversionList}" th:value="${tt.solveversionId}" th:text="${tt.solveversion}" >
+                                               			 </option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- /.box-body -->
+                                        <div class="box-footer">
+                                            <div class="form-group">
+                                                <div class="col-sm-offset-2 col-sm-10 nop">
+                                                    <a class="btn btn-primary" data-toggle="modal" href="javascript:void(0);" id="msg">提 交</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- /.box-footer -->
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+    
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><span>&times;</span></button>
+                    <h4 class="modal-title text-light-blue" id="myModalLabel">提示</h4>
+                </div>
+                <div class="modal-body">
+                    <p >是否提交</p>
+                </div>
+                <div class="modal-footer" style="text-align:center">
+                    <button type="button" class="btn btn-primary" style="width:20%;" data-dismiss="modal"  id="submit">是</button>
+                    <button type="button" class="btn btn-primary" style="width:20%;" data-dismiss="modal" id="sure">否</button>
+                </div>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
+    
+        <div class="modal fade" id="messageModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><span>&times;</span></button>
+                    <h4 class="modal-title text-light-blue" id="myModalLabel">提示</h4>
+                </div>
+                <div class="modal-body">
+                    <p><span id="message"></span></p>
+                </div>
+                <div class="modal-footer" style="text-align:center">
+                    <button type="button" class="btn btn-primary" style="width:20%;" data-dismiss="modal" id="sure">确定</button>
+                </div>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
+    <!-- jQuery 2.2.3 -->
+    <script src="../admin/plugins/jQuery/jquery-2.2.3.min.js"></script>
+    <!-- Bootstrap 3.3.6 -->
+    <script src="../admin/bootstrap/js/bootstrap.min.js"></script>
+    <!-- 下拉选择 -->
+    <script src="../admin/plugins/select2/select2.full.min.js"></script>
+    <!-- AdminLTE App -->
+    <script src="../admin/dist/js/app.min.js"></script>
+    <!-- 日期 -->
+    <script src="../admin/plugins/datetimepicker/bootstrap-datetimepicker.js"></script>
+    <script src="../admin/plugins/datetimepicker/bootstrap-datetimepicker.zh-CN.js"></script>
+	 <script type="text/javascript">
+    $(document).ready(function() {
+        $(".select2").select2();
+	
+        $("#startTimeCP").change(function(){
+        	var sTime = new Date($("#startTimeCP").val()).Format("yyyy-MM-dd");
+        	var endHours = " 23:59:59";
+        	var otherHours = " 00:00:00";
+        	$("#startTime").val(sTime+otherHours);
+        	//0-6,0代表星期天
+        	var weekDay =  new Date($("#startTimeCP").val()).getDay(); 
+        	//周日设置为7.方便计算预期时间
+        	if(weekDay == 0 ){weekDay = 7;}
+        	//迭代结束日 :开始后的第二周周日 晚上23:59:59
+        	var endDateDay = 14 - weekDay;
+        	var endTime = change_date(sTime,endDateDay);
+        	$("#endTimeCP").val(endTime);
+        	$("#endTime").val(endTime+endHours);
+        	//需求归口统计日:迭代开始前2周的周六 00：00:00
+        	var requestEndTimeDay = - 8 - weekDay;
+        	var requestEndTime = change_date(sTime,requestEndTimeDay);
+        	$("#requestEndTimeCP").val(requestEndTime);
+        	$("#requestEndTime").val(requestEndTime+otherHours);
+        	//迭代排期统计日:迭代开始前1周的周二00：00:00
+        	var planTimeDay = - 5 - weekDay;
+        	var planTime = change_date(sTime,planTimeDay);
+        	$("#planTimeCP").val(planTime);
+        	$("#planTime").val(planTime+otherHours);
+        	//Sit提测统计日:迭代开始第2周的周二00：00:00
+        	var sitTimeDay = 9 - weekDay ;
+        	var sitTime = change_date(sTime,sitTimeDay);
+        	$("#sitTimeCP").val(sitTime);	
+        	$("#sitTime").val(sitTime+otherHours);	
+        	//Pre发布日统计日:迭代开始第2周的周四00：00:00
+        	var preTimeDay = 11 - weekDay ;
+        	var preTime = change_date(sTime,preTimeDay);
+        	$("#preTimeCP").val(preTime);
+        	$("#preTime").val(preTime+otherHours);	
+        	//迭代发布统计日:迭代开始第3周的周四00：00:00
+        	var prdTimeDay = 18 - weekDay;
+        	var prdTime = change_date(sTime,prdTimeDay);
+        	$("#prdTimeCP").val(prdTime);	
+        	$("#prdTime").val(prdTime+otherHours);	
+        })
+        
+        $('.form_date').datetimepicker({
+            language: 'zh-CN',
+            weekStart: 1,
+            todayBtn: 1,
+            autoclose: 1,
+            todayHighlight: 1,
+            startView: 2,
+            minView: 2,
+            forceParse: 0
+        });
+        
+        //获取日期  加减天数后的日期
+        var change_date = function(date,days) {
+        	return  yesterdsay = new Date(new Date(date).getTime() + 86400000*days).Format("yyyy-MM-dd");
+		};
+		
+		$("#msg").click(function(){
+			if($("#sprintId").val() == "null"){
+				$('#message').html('请选择迭代')
+				$('#messageModal').modal('show')
+				return false;
+			}
+			$('#myModal').modal('show')
+		})
+		
+		$("#submit").click(function(){
+			   $.ajax({
+				  type:"post",
+				  url:"/iterConfiguration/updateSprintVersion",
+				  data:$("#sprint").serialize(),
+				  dataType:"Json",
+				  success:function(data){     
+					  if(data.result){
+						  $('#message').html('提交成功')
+						  $('#messageModal').modal('show')
+					  }else{
+						  $('#message').html('提交失败')
+						  $('#messageModal').modal('show')
+
+					  }
+				  }
+			  });
+		})
+		
+		
+		
+    });
+    
+    //获取各时间的公共方法
+    function  getEstimate(sDate,addDay){
+    	//获取日期是周几
+    	var sDate = new Date(sDate);
+    	var weekDay =  sDate.getDay();
+
+    }
+      
+    Date.prototype.Format = function (fmt) { //author: meizz 
+        var o = {
+            "M+": this.getMonth() + 1, //月份 
+            "d+": this.getDate(), //日 
+            "h+": this.getHours(), //小时 
+            "m+": this.getMinutes(), //分 
+            "s+": this.getSeconds(), //秒 
+            "q+": Math.floor((this.getMonth() + 3) / 3), //季度 
+            "S": this.getMilliseconds() //毫秒 
+        };
+        if (/(y+)/.test(fmt)) fmt = fmt.replace(RegExp.$1, (this.getFullYear() + "").substr(4 - RegExp.$1.length));
+        for (var k in o)
+        if (new RegExp("(" + k + ")").test(fmt)) fmt = fmt.replace(RegExp.$1, (RegExp.$1.length == 1) ? (o[k]) : (("00" + o[k]).substr(("" + o[k]).length)));
+        return fmt;
+    }
+    
+   
+  
+    
+    
+    </script>
+</body>
+
+</html>

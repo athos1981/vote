@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"></meta>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"></meta>
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport"></meta>
+    <!-- DataTables -->
+    <link rel="stylesheet" href="../admin/plugins/datatables/dataTables.bootstrap.css"/>
+    <link rel="stylesheet" href="../admin/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../admin/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../admin/css/ionicons.min.css">
+    <link rel="stylesheet" href="../admin/plugins/select2/select2.min.css">
+    <link rel="stylesheet" href="../admin/dist/css/AdminLTE.css">
+    <link rel="stylesheet" href="../admin/plugins/ztree/metro.css">
+    <link rel="stylesheet" href="../admin/dist/css/skins/_all-skins.min.css">
+    <link rel="stylesheet" href="../admin/css/data-common.css">
+</head>
+<body>
+<div><a class="btn btn-block btn-social btn-instagram">
+                <i class="fa fa-instagram"></i>百联集团开发人员技能大赛-2016到2017赛季英超联赛球迷调查问卷（架构组出品）
+              </a>
+</div>
+                 <a class="btn btn-block btn-social btn-twitter" style="display:none" id="voteTitle">
+                Title
+              </a>
+              调查问卷题目列表：
+             <div id="titleTr">
+
+             </div>
+             新问卷题目内容：<div class="input-group margin">
+                <input type="text" class="form-control" id="pollContent">
+                    <span class="input-group-btn">
+                      <button type="button" onclick="addPoll()" class="btn btn-info btn-flat">新增!</button>
+                    </span>
+              </div>
+                           
+            答题区：
+            <div id="pollTitle">title</div>
+            <img src="../img/西红柿.png" class="user-image" alt="User Image" style="display:none" id="tomatoImg"/>
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" id="tomato">
+            </a>
+            <div id="votcodDiv"></div>
+           	<div> 鼠标移到图标上获得投票数</div>
+          	<div>选项列表</div>
+            <table id="example2" class="table table-bordered table-hover table-striped">
+            <thead><tr><th>选项编号</th><th>选项名称</th><th>操作</th></tr></thead><tbody id="tbody">
+         </tbody>
+            </table>
+            <div class="input-group margin">
+                <input type="text" class="form-control" id="optionContent">
+                    <span class="input-group-btn">
+                      <button id="optionId" selectOptionId="" type="button" onclick="addOption()" class="btn btn-info btn-flat">新增选项!</button>
+                    </span>
+              </div>
+     </body>
+    <!-- DataTables -->
+    <!-- jQuery 2.2.3 -->
+	<script src="../admin/plugins/jQuery/jquery-2.2.3.min.js"></script>
+	<!-- Bootstrap 3.3.6 -->
+	<script src="../admin/bootstrap/js/bootstrap.min.js"></script>
+	<!-- AdminLTE App -->
+	<script src="../admin/dist/js/app.min.js"></script>
+    <script src="../admin/plugins/datatables/jquery.dataTables.min.js"></script>
+    <script src="../admin/plugins/datatables/dataTables.bootstrap.min.js"></script>
+    <script type="text/javascript">
+    $(function() {
+    	findAllPoll();
+    });
+    function findAllPoll(){
+    	$("#titleTr").children().remove();
+    	$.ajax({
+            type: "get",
+            async: true,
+            url: "../findPoll",
+            dataType: "json",
+            success: function(data) {
+            	$.each(data,function(i,bo){
+            		var title=	$("#voteTitle").clone();
+            		title.text(bo.id+"、"+bo.content);
+            		title.bind("click",function(){
+            			showAnswer(bo.id,bo.content);
+            		});
+            		$("#titleTr").append(title);
+            		title.show();
+            	})
+            }
+        });
+    }
+    
+    function addPoll(){
+    	var pollContent	=	$("#pollContent").val();
+    	if(pollContent==null||pollContent==""){
+    		alert("请输入题目！");
+    		return;
+    	}
+    	
+    	$.ajax({
+            type: "post",
+            async: true,
+            url: "../addPoll",
+            data:{content:pollContent},
+            dataType: "json",
+            success: function(data) {
+            	alert("新增成功！");
+            	findAllPoll();
+            }
+        });
+    }
+    
+    function showAnswer(voteId,voteContent){
+    	$("#optionId").attr("selectOptionId",voteId);
+    	$.ajax({
+            type: "get",
+            async: true,
+            url: "../findOption/"+voteId,
+            dataType: "json",
+            success: function(data) {
+            	if(voteContent!=null&&voteContent!=""){
+            		$("#pollTitle").text(voteContent);
+            	}
+            	$("#tomato").children().remove();
+            	$.each(data,function(i,bo){
+            		var title=	$("#tomatoImg").clone();
+            		title.mouseenter(function(){
+            			viewVote(bo.id,bo.content);
+            		});
+            		title.show();
+            		$("#tomato").append(title);
+            	});
+            	renderTable(data);
+            }
+    	});
+    }
+    
+    function renderTable(data){
+    	$("#tbody").children().remove();
+    	$.each(data,function(i,bo){
+    		$("#tbody").append("<tr><td>"+bo.id+"</td><td>"+bo.content+"</td><td><button type=\"button\" class=\"btn btn-primary\">编辑</button>&nbsp;<button type=\"button\" class=\"btn btn-success\" onclick=removeOption('"+bo.id+"')>删除</button>&nbsp;<button type=\"button\" class=\"btn btn-info\" onclick=\"voteOption('"+bo.id+"')\">投票</button></td></tr>")
+    	});
+    }
+    
+    function addOption(){
+    	var selectOptionId	=	$("#optionId").attr("selectOptionId");
+    	var content	=	$("#optionContent").val();
+    	if(selectOptionId==""){
+    		alert("请选择则题目");
+    		return;
+    	}
+    	
+    	if(content==""){
+    		alert("请输入选项");
+    		return;
+    	}
+    		
+    	$.ajax({
+            type: "post",
+            async: true,
+            url: "../addOption",
+            data:{pollId:selectOptionId,content:content},
+            success: function(data) {
+            	alert("选项添加成功！");
+            	showAnswer(selectOptionId);
+            }
+    	});
+    }
+    
+    function editOption(){
+    }
+    
+    function removeOption(id){
+    	$.ajax({
+            type: "POST",
+            async: true,
+            url: "../deleteOption",
+            data:{id:id},
+            success: function(data) {
+				alert("删除选项成功！");
+				var selectOptionId	=	$("#optionId").attr("selectOptionId");
+				showAnswer(selectOptionId);
+            }
+    	});
+    }
+    
+    function voteOption(optionId){
+    	$.ajax({
+            type: "post",
+            async: true,
+            url: "../addVote",
+            data:{optionId:optionId},
+            success: function(data) {
+            	alert("投票成功！");
+            }
+    	});
+    }
+    
+    function viewVote(optionId,content){
+    	$.ajax({
+            type: "get",
+            async: true,
+            url: "../VoteCot/"+optionId,
+            success: function(data) {
+            	$("#votcodDiv").text("《"+content+"》选项被选"+data+"次");
+            }
+    	});
+    }
+</script>
+
+</html>

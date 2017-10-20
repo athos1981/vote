@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>报表故事明细(新增拖走)</title>
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <link rel="stylesheet" href="../admin/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../admin/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../admin/css/ionicons.min.css">
+    <link rel="stylesheet" href="../admin/plugins/select2/select2.min.css">
+    <link rel="stylesheet" href="../admin/dist/css/adminLTE.css">   
+    <link rel="stylesheet" href="../admin/dist/css/skins/_all-skins.min.css">
+    <link rel="stylesheet" href="../admin/css/data-common.css">
+    <!-- DataTables -->
+    <link rel="stylesheet" href="../admin/plugins/datatables/dataTables.bootstrap.css">
+</head>
+
+<body class="skin-blue sidebar-mini">
+    <div class="wrapper">
+        <!-- Content Wrapper. Contains page content -->
+        <div class="content-wrapper" style="margin-left:0;">
+            <!-- Content Header (Page header) -->
+            <section class="content">
+                <div class="row">
+                    <div class="col-xs-12">
+                        <div class="box-header nop">
+                            <h4 class="nop">报表故事明细(新增拖走)</h4>                           
+                        </div>
+                        <div class="box box-primary">
+                            <div class="box-body">
+                                <table id="example2" class="table table-bordered table-hover table-striped">
+                                    <thead>
+                                        <tr>
+                                            <th>故事编号</th>
+                                            <th>故事主题</th>
+                                            <th>产品</th>
+                                            <th>小组</th>                                         
+                                            <th>状态</th> 
+                                            <th>变更执行者</th>                                           
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>BYT-111</td>
+                                            <td>故事随便写</td>
+                                            <td>产品</td>
+                                            <td>促销</td>
+                                            <td>PRE</td>
+                                            <td>汪少寅</td>                                          
+                                        </tr>
+                                         <tr>
+                                            <td>BYT-111</td>
+                                            <td>故事随便写</td>
+                                            <td>产品</td>
+                                            <td>促销</td>
+                                            <td>PRE</td>
+                                            <td>汪少寅</td>                                          
+                                        </tr>
+                                         <tr>
+                                            <td>BYT-111</td>
+                                            <td>故事随便写</td>
+                                            <td>产品</td>
+                                            <td>促销</td>
+                                            <td>PRE</td>
+                                            <td>汪少寅</td>                                          
+                                        </tr>
+                                         <tr>
+                                            <td>BYT-111</td>
+                                            <td>故事随便写</td>
+                                            <td>产品</td>
+                                            <td>促销</td>
+                                            <td>PRE</td>
+                                            <td>汪少寅</td>                                          
+                                        </tr>
+                                         <tr>
+                                            <td>BYT-111</td>
+                                            <td>故事随便写</td>
+                                            <td>产品</td>
+                                            <td>促销</td>
+                                            <td>PRE</td>
+                                            <td>汪少寅</td>                                          
+                                        </tr>
+                                         <tr>
+                                            <td>BYT-111</td>
+                                            <td>故事随便写</td>
+                                            <td>产品</td>
+                                            <td>促销</td>
+                                            <td>PRE</td>
+                                            <td>汪少寅</td>                                          
+                                        </tr>
+                                         <tr>
+                                            <td>BYT-111</td>
+                                            <td>故事随便写</td>
+                                            <td>产品</td>
+                                            <td>促销</td>
+                                            <td>PRE</td>
+                                            <td>汪少寅</td>                                          
+                                        </tr>
+                                         <tr>
+                                            <td>BYT-111</td>
+                                            <td>故事随便写</td>
+                                            <td>产品</td>
+                                            <td>促销</td>
+                                            <td>PRE</td>
+                                            <td>汪少寅</td>                                          
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <!-- /.box-body -->
+                        </div>
+                        <!-- /.box -->
+                    </div>
+                    <!-- /.col -->
+                </div>
+                <!-- /.row -->
+        </div>
+        <!-- /.nav-tabs-custom -->
+        </section>
+        <!-- /.content -->
+    </div>
+    <!-- /.content-wrapper -->
+    </div>
+    <!-- jQuery 2.2.3 -->
+    <script src="../admin/plugins/jQuery/jquery-2.2.3.min.js"></script>
+    <!-- Bootstrap 3.3.6 -->
+    <script src="../admin/bootstrap/js/bootstrap.min.js"></script>
+    <!-- ../adminLTE App -->
+    <script src="../admin/dist/js/app.min.js"></script>
+    <!-- DataTables -->
+    <script src="../admin/plugins/datatables/jquery.dataTables.min.js"></script>
+    <script src="../admin/plugins/datatables/dataTables.bootstrap.min.js"></script>
+    <script type="text/javascript">
+    $(function() {
+                $('#example2').DataTable({
+                    "paging": true,
+                    "lengthChange": false,
+                    "searching": false,
+                    "ordering": false,
+                    "info": true,
+                    "autoWidth": false
+                });
+    </script>
+</body>
+
+</html>

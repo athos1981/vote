@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>团队质量详情页</title>
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <link rel="stylesheet" href="admin/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="admin/css/font-awesome.min.css">
+    <link rel="stylesheet" href="admin/css/ionicons.min.css">
+    <link rel="stylesheet" href="admin/plugins/select2/select2.min.css">
+    <link rel="stylesheet" href="admin/dist/css/AdminLTE.css">
+    <link rel="stylesheet" href="admin/dist/css/skins/_all-skins.min.css">
+    <link rel="stylesheet" href="admin/css/data-common.css">
+    <!-- DataTables -->
+    <link rel="stylesheet" href="admin/plugins/datatables/dataTables.bootstrap.css">
+    <!--[if IE]>
+      <script src="js/html5shiv.js"></script>
+      <script src="js/excanvas.js"></script>
+      <script src="js/respond.min.js"></script>
+  <![endif]-->
+    <!--[if lte IE 7]>
+    <script type="text/javascript">
+        window.location.href = 'close-ie.html';
+    </script>
+  <![endif]-->
+</head>
+
+<body class="skin-blue sidebar-mini">
+    <div class="wrapper">
+        <!-- Content Wrapper. Contains page content -->
+        <div class="content-wrapper" style="margin-left:0;">
+            <!-- Content Header (Page header) -->
+            <section class="content">
+                <!-- Custom tabs (Charts with tabs)-->
+                <div class="nav-tabs-custom">
+                    <!-- Tabs within a box -->
+                    <ul class="nav nav-tabs">
+                        <li class="active"><a href="#already" data-toggle="tab">已解决bug</a></li>
+                        <li><a href="#notsolve" data-toggle="tab">未解决bug</a></li>
+                        <li><a href="#treatment" data-toggle="tab">处理中</a></li>
+                        <li><a href="#participate" data-toggle="tab">参与bug</a></li>
+                    </ul>
+                    <div class="tab-content no-padding">
+                        <!-- Morris chart - Sales -->
+                        <div class="chart tab-pane active" id="already" style="">
+                            <div class="row">
+                                <div class="col-xs-12">
+                                    <div class="box-header  nop">
+                                        <div class="col-xs-12">
+                                            <h4 class="textplace-right">当前迭代：V5.22（219-303）</h4>
+                                        </div>
+                                    </div>
+                                    <div class="box box-primary">
+                                        <div class="box-body">
+                                            <table id="example2" class="table table-bordered table-hover table-striped">
+                                                <thead>
+                                                    <tr>
+                                                        <th>JIRA编号</th>
+                                                        <th>优先级</th>
+                                                        <th>bug主题</th>
+                                                        <th>总时长（天）</th>
+                                                        <th>参与时长（天）</th>
+                                                        <th>责任人</th>                                                    
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td>BYT-111</td>
+                                                        <td>中等</td>
+                                                        <td>bug随便写</td>
+                                                        <td>12</td>
+                                                        <td>6</td>
+                                                        <td>汪少寅</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>BYT-111</td>
+                                                        <td>中等</td>
+                                                        <td>bug随便写</td>
+                                                        <td>12</td>
+                                                        <td>6</td>
+                                                        <td>汪少寅</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>BYT-111</td>
+                                                        <td>中等</td>
+                                                        <td>bug随便写</td>
+                                                        <td>12</td>
+                                                        <td>6</td>
+                                                        <td>汪少寅</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>BYT-111</td>
+                                                        <td>中等</td>
+                                                        <td>bug随便写</td>
+                                                        <td>12</td>
+                                                        <td>6</td>
+                                                        <td>汪少寅</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>BYT-111</td>
+                                                        <td>中等</td>
+                                                        <td>bug随便写</td>
+                                                        <td>12</td>
+                                                        <td>6</td>
+                                                        <td>汪少寅</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>BYT-111</td>
+                                                        <td>中等</td>
+                                                        <td>bug随便写</td>
+                                                        <td>12</td>
+                                                        <td>6</td>
+                                                        <td>汪少寅</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>BYT-111</td>
+                                                        <td>中等</td>
+                                                        <td>bug随便写</td>
+                                                        <td>12</td>
+                                                        <td>6</td>
+                                                        <td>汪少寅</td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                        <!-- /.box-body -->
+                                    </div>
+                                    <!-- /.box -->
+                                </div>
+                                <!-- /.col -->
+                            </div>
+                            <!-- /.row -->
+                        </div>
+                        <div class="chart tab-pane" id="notsolve" style="">
+                            <div class="row">
+                                <div class="box-header  nop">
+                                    <div class="col-xs-12">
+                                        <h4 class="textplace-right">当前迭代：V5.22（219-303）</h4>
+                                    </div>
+                                </div>
+                                <div class="col-xs-12">
+                                    <div class="box box-primary">
+                                        <div class="box-body">
+                                            <table id="example3" class="table table-bordered table-hover table-striped">
+                                                <thead>
+                                                    <tr>
+                                                        <th>JIRA编号</th>
+                                                        <th>优先级</th>
+                                                        <th>bug主题</th>
+                                                        <th>状态</th>
+                                                        <th>停留至今</th>
+                                                        <th>责任人</th>
+                                                        <th>经办人</th>                                                    
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td>BYT-111</td>
+                                                        <td>中等</td>
+                                                        <td>bug随便写</td>
+                                                        <td>进行中</td>
+                                                        <td>6</td>
+                                                        <td>汪少寅</td>
+                                                        <td></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>BYT-111</td>
+                                                        <td>中等</td>
+                                                        <td>bug随便写</td>
+                                                        <td>进行中</td>
+                                                        <td>6</td>
+                                                        <td>汪少寅</td>
+                                                        <td></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>BYT-111</td>
+                                                        <td>中等</td>
+                                                        <td>bug随便写</td>
+                                                        <td>进行中</td>
+                                                        <td>6</td>
+                                                        <td>汪少寅</td>
+                                                        <td></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>BYT-111</td>
+                                                        <td>中等</td>
+                                                        <td>bug随便写</td>
+                                                        <td>进行中</td>
+                                                        <td>6</td>
+                                                        <td>汪少寅</td>
+                                                        <td></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>BYT-111</td>
+                                                        <td>中等</td>
+                                                        <td>bug随便写</td>
+                                                        <td>进行中</td>
+                                                        <td>6</td>
+                                                        <td>汪少寅</td>
+                                                        <td></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>BYT-111</td>
+                                                        <td>中等</td>
+                                                        <td>bug随便写</td>
+                                                        <td>进行中</td>
+                                                        <td>6</td>
+                                                        <td>汪少寅</td>
+                                                        <td></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>BYT-111</td>
+                                                        <td>中等</td>
+                                                        <td>bug随便写</td>
+                                                        <td>进行中</td>
+                                                        <td>6</td>
+                                                        <td>汪少寅</td>
+                                                        <td></td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                        <!-- /.box-body -->
+                                    </div>
+                                    <!-- /.box -->
+                                </div>
+                                <!-- /.col -->
+                            </div>
+                            <!-- /.row -->
+                        </div>
+                        <div class="chart tab-pane" id="treatment" style="">
+                            <div class="row">
+                                <div class="box-header  nop">
+                                    <div class="col-xs-12">
+                                        <h4 class="textplace-right">当前迭代：V5.22（219-303）</h4>
+                                    </div>
+                                </div>
+                                <div class="col-xs-12">
+                                    <div class="box box-primary">
+                                        <div class="box-body">
+                                            <table id="example4" class="table table-bordered table-hover table-striped">
+                                                <thead>
+                                                    <tr>
+                                                        <th>JIRA编号</th>
+                                                        <th>优先级</th>
+                                                        <th>bug主题</th>
+                                                        <th>状态</th>
+                                                        <th>参与时长（天）</th>
+                                                        <th>责任人</th>
+                                                        <th>经办人</th>                                                    
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td>BYT-111</td>
+                                                        <td>中等</td>
+                                                        <td>bug随便写</td>
+                                                        <td>进行中</td>
+                                                        <td>6</td>
+                                                        <td>汪少寅</td>
+                                                        <td>汪少寅</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>BYT-111</td>
+                                                        <td>中等</td>
+                                                        <td>bug随便写</td>
+                                                        <td>进行中</td>
+                                                        <td>6</td>
+                                                        <td>汪少寅</td>
+                                                        <td>汪少寅</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>BYT-111</td>
+                                                        <td>中等</td>
+                                                        <td>bug随便写</td>
+                                                        <td>进行中</td>
+                                                        <td>6</td>
+                                                        <td>汪少寅</td>
+                                                        <td>汪少寅</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>BYT-111</td>
+                                                        <td>中等</td>
+                                                        <td>bug随便写</td>
+                                                        <td>进行中</td>
+                                                        <td>6</td>
+                                                        <td>汪少寅</td>
+                                                        <td>汪少寅</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>BYT-111</td>
+                                                        <td>中等</td>
+                                                        <td>bug随便写</td>
+                                                        <td>进行中</td>
+                                                        <td>6</td>
+                                                        <td>汪少寅</td>
+                                                        <td>汪少寅</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>BYT-111</td>
+                                                        <td>中等</td>
+                                                        <td>bug随便写</td>
+                                                        <td>进行中</td>
+                                                        <td>6</td>
+                                                        <td>汪少寅</td>
+                                                        <td>汪少寅</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>BYT-111</td>
+                                                        <td>中等</td>
+                                                        <td>bug随便写</td>
+                                                        <td>进行中</td>
+                                                        <td>6</td>
+                                                        <td>汪少寅</td>
+                                                        <td>汪少寅</td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                        <!-- /.box-body -->
+                                    </div>
+                                    <!-- /.box -->
+                                </div>
+                                <!-- /.col -->
+                            </div>
+                            <!-- /.row -->
+                        </div>
+                        <div class="chart tab-pane" id="participate" style="">
+                            <div class="row">
+                                <div class="box-header  nop">
+                                    <div class="col-xs-12">
+                                        <h4 class="textplace-right">当前迭代：V5.22（219-303）</h4>
+                                    </div>
+                                </div>
+                                <div class="col-xs-12">
+                                    <div class="box box-primary">
+                                        <div class="box-body">
+                                            <table id="example5" class="table table-bordered table-hover table-striped">
+                                                <thead>
+                                                    <tr>
+                                                        <th>JIRA编号</th>
+                                                        <th>优先级</th>
+                                                        <th>bug主题</th>
+                                                        <th>状态</th>
+                                                        <th>参与时长（天）</th>
+                                                        <th>参与人</th>                                                    
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td>BYT-111</td>
+                                                        <td>中等</td>
+                                                        <td>bug随便写</td>
+                                                        <td>待测试</td>
+                                                        <td>6</td>
+                                                        <td>汪少寅</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>BYT-111</td>
+                                                        <td>中等</td>
+                                                        <td>bug随便写</td>
+                                                        <td>待测试</td>
+                                                        <td>6</td>
+                                                        <td>汪少寅</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>BYT-111</td>
+                                                        <td>中等</td>
+                                                        <td>bug随便写</td>
+                                                        <td>进行中</td>
+                                                        <td>6</td>
+                                                        <td>汪少寅</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>BYT-111</td>
+                                                        <td>中等</td>
+                                                        <td>bug随便写</td>
+                                                        <td>进行中</td>
+                                                        <td>6</td>
+                                                        <td>汪少寅</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>BYT-111</td>
+                                                        <td>中等</td>
+                                                        <td>bug随便写</td>
+                                                        <td>待测试</td>
+                                                        <td>6</td>
+                                                        <td>汪少寅</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>BYT-111</td>
+                                                        <td>中等</td>
+                                                        <td>bug随便写</td>
+                                                        <td>进行中</td>
+                                                        <td>6</td>
+                                                        <td>汪少寅</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>BYT-111</td>
+                                                        <td>中等</td>
+                                                        <td>bug随便写</td>
+                                                        <td>待测试</td>
+                                                        <td>6</td>
+                                                        <td>汪少寅</td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                        <!-- /.box-body -->
+                                    </div>
+                                    <!-- /.box -->
+                                </div>
+                                <!-- /.col -->
+                            </div>
+                            <!-- /.row -->
+                        </div>
+                    </div>
+                </div>
+                <!-- /.nav-tabs-custom -->
+            </section>
+            <!-- /.content -->
+        </div>
+        <!-- /.content-wrapper -->
+    </div>
+    <!-- jQuery 2.2.3 -->
+    <script src="admin/plugins/jQuery/jquery-2.2.3.min.js"></script>
+    <!-- Bootstrap 3.3.6 -->
+    <script src="admin/bootstrap/js/bootstrap.min.js"></script>
+    <!-- AdminLTE App -->
+    <script src="admin/dist/js/app.min.js"></script>
+    <!-- DataTables -->
+    <script src="admin/plugins/datatables/jquery.dataTables.min.js"></script>
+    <script src="admin/plugins/datatables/dataTables.bootstrap.min.js"></script>
+    <script type="text/javascript">
+    $(function() {
+                $('#example2').DataTable({
+                    "paging": true,
+                    "lengthChange": false,
+                    "searching": false,
+                    "ordering": false,
+                    "info": true,
+                    "autoWidth": false
+                });
+                $('#example3').DataTable({
+                    "paging": true,
+                    "lengthChange": false,
+                    "searching": false,
+                    "ordering": false,
+                    "info": true,
+                    "autoWidth": false
+                });
+                $('#example4').DataTable({
+                    "paging": true,
+                    "lengthChange": false,
+                    "searching": false,
+                    "ordering": false,
+                    "info": true,
+                    "autoWidth": false
+                });
+                $('#example5').DataTable({
+                    "paging": true,
+                    "lengthChange": false,
+                    "searching": false,
+                    "ordering": false,
+                    "info": true,
+                    "autoWidth": false
+                });
+            })
+    </script>
+</body>
+
+</html>

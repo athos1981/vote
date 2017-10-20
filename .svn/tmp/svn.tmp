@@ -1,0 +1,26 @@
+package com.bl.vote.service;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.bl.vote.domain.Poll;
+import com.bl.vote.domain.PollDao;
+
+@Service
+public class VoteService {
+
+	@Autowired
+	private PollDao pollDao;
+
+	public Iterable<Poll> findAll() {
+		return pollDao.findAll();
+	}
+
+	public long addPoll(String content) {
+		Poll p = new Poll();
+		p.setContent(content);
+		pollDao.save(p);
+		return p.getId();
+	}
+
+}

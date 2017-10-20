@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>表详情</title>
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <link rel="stylesheet" href="admin/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="admin/css/font-awesome.min.css">
+    <link rel="stylesheet" href="admin/css/ionicons.min.css">
+    <link rel="stylesheet" href="admin/plugins/select2/select2.min.css">
+    <link rel="stylesheet" href="admin/dist/css/AdminLTE.css">
+    <link rel="stylesheet" href="admin/dist/css/skins/_all-skins.min.css">
+    <link rel="stylesheet" href="admin/css/data-common.css">
+    <!-- DataTables -->
+    <link rel="stylesheet" href="admin/plugins/datatables/dataTables.bootstrap.css">
+    <!--[if IE]>
+      <script src="js/html5shiv.js"></script>
+      <script src="js/excanvas.js"></script>
+      <script src="js/respond.min.js"></script>
+  <![endif]-->
+    <!--[if lte IE 7]>
+    <script type="text/javascript">
+        window.location.href = 'close-ie.html';
+    </script>
+  <![endif]-->
+</head>
+
+<body class="skin-blue sidebar-mini">
+    <div class="wrapper">
+        <!-- Content Wrapper. Contains page content -->
+        <div class="content-wrapper" style="margin-left:0;">
+            <!-- Content Header (Page header) -->
+            <section class="content-header">
+                <div class="row">
+                    <form class="form-horizontal">
+                        <div class="box-body nop">
+                            <div class="col-sm-offset-0 col-md-12 nop">
+                                <div class="col-sm-offset-0 col-md-4">
+                                    <h4>
+                                schema:RADMP（版本2017-01-01）   
+                            </h4>
+                                </div>
+                                <div class="col-md-4">
+                                    <label class="col-sm-3  control-label" style="margin-left:-15px;">数据库类型</label>
+                                    <div class="col-sm-5">
+                                        <select class="form-control">
+                                            <option>option 1</option>
+                                            <option>option 2</option>
+                                            <option>option 3</option>
+                                            <option>option 4</option>
+                                            <option>option 5</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-sm-offset-0 col-md-4">
+                                    <button type="submit" class="btn btn-primary" id="">版本对比</button>
+                                </div>
+                            </div>
+                            <div class="col-sm-offset-0 col-md-12 nop">
+                                <div class="col-sm-offset-0 col-md-4">
+                                    <h4>
+                                        所属schema:radmp           
+                                    </h4>
+                                </div>
+                                <div class="col-sm-offset-0 col-md-4">
+                                    <h4>
+                                        所属SID:rad
+                                    </h4>
+                                </div>
+                            </div>
+                            <div class="col-sm-offset-0 col-md-12 nop">
+                                <div class="col-sm-offset-0 col-md-8">
+                                    <h4>
+                                        共40个字段,其中与上个版本对比：新增字段:3,删除表：1,字段注释缺失：20           
+                                    </h4>
+                                </div>
+                                <div class="col-sm-offset-0 col-md-4">
+                                    <div class="checkbox">
+                                        <label>
+                                            <input type="checkbox"> 只显示注释缺失
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-offset-0 col-md-12">
+                                <h4>
+                                    表设计,索引          
+                                </h4>
+                            </div>
+                        </div>
+                    </form>
+            </section>
+            <section class="content">
+                <div class="row">
+                    <div class="col-xs-12">
+                        <div class="box box-primary">
+                            <div class="box-body">
+                                <table id="example2" class="table table-bordered table-hover table-striped">
+                                    <thead>
+                                        <tr>
+                                            <th>序号</th>
+                                            <th>字段名</th>
+                                            <th>注释</th>
+                                            <th>类型</th>
+                                            <th>长度</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>1</td>
+                                            <td>title</td>
+                                            <td>序号</td>
+                                            <td>int</td>
+                                            <td>10</td>
+                                        </tr>
+                                        <tr>
+                                            <td>1</td>
+                                            <td>title</td>
+                                            <td>序号</td>
+                                            <td>int</td>
+                                            <td>10</td>
+                                        </tr>
+                                        <tr>
+                                            <td>1</td>
+                                            <td>title</td>
+                                            <td>序号</td>
+                                            <td>int</td>
+                                            <td>10</td>
+                                        </tr>
+                                        <tr>
+                                            <td>1</td>
+                                            <td>title</td>
+                                            <td>序号</td>
+                                            <td>int</td>
+                                            <td>10</td>
+                                        </tr>
+                                        <tr>
+                                            <td>1</td>
+                                            <td>title</td>
+                                            <td>序号</td>
+                                            <td>int</td>
+                                            <td>10</td>
+                                        </tr>
+                                        <tr>
+                                            <td>1</td>
+                                            <td>title</td>
+                                            <td>序号</td>
+                                            <td>int</td>
+                                            <td>10</td>
+                                        </tr>
+                                        <tr>
+                                            <td>1</td>
+                                            <td>title</td>
+                                            <td>序号</td>
+                                            <td>int</td>
+                                            <td>10</td>
+                                        </tr>
+                                        <tr>
+                                            <td>1</td>
+                                            <td>title</td>
+                                            <td>序号</td>
+                                            <td>int</td>
+                                            <td>10</td>
+                                        </tr>
+                                        <tr>
+                                            <td>1</td>
+                                            <td>title</td>
+                                            <td>序号</td>
+                                            <td>int</td>
+                                            <td>10</td>
+                                        </tr>
+                                        <tr>
+                                            <td>1</td>
+                                            <td>title</td>
+                                            <td>序号</td>
+                                            <td>int</td>
+                                            <td>10</td>
+                                        </tr>
+                                        <tr>
+                                            <td>1</td>
+                                            <td>title</td>
+                                            <td>序号</td>
+                                            <td>int</td>
+                                            <td>10</td>
+                                        </tr>
+                                        <tr>
+                                            <td>1</td>
+                                            <td>title</td>
+                                            <td>序号</td>
+                                            <td>int</td>
+                                            <td>10</td>
+                                        </tr>
+                                        <tr>
+                                            <td>1</td>
+                                            <td>title</td>
+                                            <td>序号</td>
+                                            <td>int</td>
+                                            <td>10</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <!-- /.box-body -->
+                        </div>
+                        <!-- /.box -->
+                    </div>
+                    <!-- /.col -->
+                </div>
+                <!-- /.row -->
+            </section>
+            <!-- /.content -->
+            </div>
+            <!-- /.content-wrapper -->
+        </div>
+        <!-- jQuery 2.2.3 -->
+        <script src="admin/plugins/jQuery/jquery-2.2.3.min.js"></script>
+        <!-- Bootstrap 3.3.6 -->
+        <script src="admin/bootstrap/js/bootstrap.min.js"></script>
+        <!-- 下拉选择 -->
+        <script src="admin/plugins/select2/select2.full.min.js"></script>
+        <!-- AdminLTE App -->
+        <script src="admin/dist/js/app.min.js"></script>
+        <!-- DataTables -->
+        <script src="admin/plugins/datatables/jquery.dataTables.min.js"></script>
+        <script src="admin/plugins/datatables/dataTables.bootstrap.min.js"></script>
+        <script type="text/javascript">
+        $(function() {
+            $('#example2').DataTable({
+                "paging": true,
+                "lengthChange": false,
+                "searching": false,
+                "ordering": false,
+                "info": true,
+                "autoWidth": false
+            });
+
+        });
+        </script>
+</body>
+
+</html>

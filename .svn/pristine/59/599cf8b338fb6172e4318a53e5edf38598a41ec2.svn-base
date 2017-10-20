@@ -1,0 +1,25 @@
+package com.bl.vote.domain;
+
+import java.util.List;
+
+import org.springframework.data.jpa.repository.Modifying;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.repository.query.Param;
+
+public interface OptionDao extends CrudRepository<Option, Long> {
+	/**
+	 * 根据题目id查询所有问题
+	 * @param pollId
+	 * @return
+	 */
+	@Query(value="SELECT * FROM Option where poll_id=:pollId"
+			,nativeQuery=true)
+	
+	public List<Option> findOptionByPollId(@Param("pollId") String pollId) ;
+	
+	
+	
+}
+
+

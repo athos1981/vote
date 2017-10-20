@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>天马 | RADmp</title>
+        <!-- Tell the browser to be responsive to screen width -->
+        <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+        <!-- Bootstrap 3.3.6 -->
+        <link rel="stylesheet" href="../admin/bootstrap/css/bootstrap.min.css">
+        <!-- Font Awesome -->
+        <link rel="stylesheet" href="../admin/css/font-awesome.min.css">
+        <!-- Ionicons -->
+        <link rel="stylesheet" href="../admin/css/ionicons.min.css">
+        <!-- Theme style -->
+        <link rel="stylesheet" href="../admin/dist/css/AdminLTE.min.css">
+        <!-- AdminLTE Skins. Choose a skin from the css/skins
+             folder instead of downloading all of them to reduce the load. -->
+        <link rel="stylesheet" href="../admin/dist/css/skins/_all-skins.min.css">
+
+        <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+        <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+        <![endif]-->
+    </head>
+    <body class="hold-transition skin-blue sidebar-mini">
+        <div class="wrapper" style="background-color:#ecf0f5">
+            <!-- Content Wrapper. Contains page content -->
+          
+                <!-- Content Header (Page header) -->
+                <section class="content-header" id="ts_weggetsid"></section>
+                <!-- Main content -->
+                <section class="content">
+                    <!-- Info boxes -->
+                    <div class="row" id="ts_row_div"></div>
+                    <!-- /.row -->
+                    <div class="row">
+                        <!-- Left col -->
+                        <section class="">
+                            <!-- Custom tabs (Charts with tabs)-->
+                            <div class="nav-tabs-custom">
+                                <div id="taskline" style="width:100%;height:400px;"></div>
+                            </div>
+                            <!-- /.nav-tabs-custom -->
+                        </section>
+                        <!-- /.Left col -->
+                        <!-- right col (We are only adding the ID to make the widgets sortable)-->
+                        <section class="">
+                            <!-- Map box -->
+                            <div class="box box-solid">
+                               <div id="storyline" style="width:100%;height:400px;"></div>
+								</div>
+                                <!-- /.box -->
+                        </section>
+                        <!-- right col -->
+                        
+                        <section class="">
+                            <div class="nav-tabs-custom">
+                                <div id="teambugline" style="width:100%;height:400px;"></div>
+                            </div>
+                        </section>
+                        <section class="">
+                            <!-- Map box -->
+                            <div class="box box-solid">
+                                <div id="teamjjfbline" style="width:100%;height:400px;"></div>
+								</div>
+                                <!-- /.box -->
+                        </section>
+                        
+                    </div>
+                </section>
+                <section class="content-header" id="ns_weggetsid"></section>
+                <section class="content" style="min-height:0px">
+                    <div class="row" id="ns_row_div"></div>
+                    <div class="row">
+                        <section class="">
+                            <div class="nav-tabs-custom">
+                                <div id="nsstoryline" style="width:100%;height:400px;"></div>
+                            </div>
+                        </section>
+                    </div>
+                </section>
+                <!-- /.content -->
+
+            <input type="hidden" id="setIntervalNum" value="" name="setIntervalNum"/>
+            <!-- /.content-wrapper -->
+        </div>
+        <!-- ./wrapper -->
+        <!-- jQuery 2.2.3 -->
+        <script src="../admin/plugins/jQuery/jquery-2.2.3.min.js"></script>
+        <!-- Bootstrap 3.3.6 -->
+        <script src="../admin/bootstrap/js/bootstrap.min.js"></script>
+        <!-- AdminLTE App -->
+        <script src="../admin/dist/js/app.min.js"></script>
+        <script src="../echart/js/echarts.min.js"></script>
+        <script>
+            $(document).ready(function() {
+                homeInfo();
+                taskline();
+                storyline();
+                teambugline();
+                teamjjfbline();
+                nsstoryline();
+            });
+        </script>
+        <script>
+            function homeInfo() {
+                $.get("/home/info/",
+                        function(data, status) {
+                            if (status == "success") {
+                                if (data) {
+                                    var weggetsarr = ["ts", "ns"];
+                                    var wid;
+                                    var srtPercentage;
+                                    $("#" + weggetsarr[0] + "_weggetsid").empty();
+                                    $("#" + weggetsarr[1] + "_weggetsid").empty();
+                                    for (var i in data) {
+                                        wid = data[i].weggetsid;
+                                        if ($.inArray(wid, weggetsarr) != '-1') {
+                                            $("#" + wid + "_weggetsid").append("<h1>" + data[i].title + "<small>" + data[i].sprintName + "</small></h1>");
+                                            if (data[i].boxInfo) {
+                                                var boxinfo = data[i].boxInfo;
+                                                $("#" + wid + "_row_div").empty();
+                                                for (var j in boxinfo) {
+                                                    if (boxinfo[j].percentage > 0) {
+                                                        srtPercentage = "<div class='progress'><div class='progress-bar' style='width: " + boxinfo[j].percentage + "%'></div></div>";
+                                                    } else {
+                                                        srtPercentage = "";
+                                                    }
+                                                    $("#" + wid + "_row_div").append("<a href='" + boxinfo[j].url + "'><div class='col-md-3 col-sm-6 col-xs-12'>" +
+                                                            "<div class='" + boxinfo[j].color + "'>" +
+                                                            "  <span class='info-box-icon'><i class='" + boxinfo[j].icon + "'></i></span>" +
+                                                            "<div class='info-box-content'>" +
+                                                            " <span class='info-box-text'>" + boxinfo[j].title + "</span>" +
+                                                            "<span class='info-box-number'>" + boxinfo[j].count + "</span>" +
+                                                            srtPercentage +
+                                                            " <span class='progress-description'>" + boxinfo[j].content + "</span>" +
+                                                            "</div></div></div></a>");
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            } else {
+                                alert("数据加载失败！");
+                            }
+                        });
+            }
+            function taskline() {
+                $.ajax({
+                    type: "get",
+                    async: true,
+                    url: "/sprintline/taskline/",
+                    dataType: "json",
+                    success: function(data) {
+                        if (data.info) {
+                            var result = data.info;
+                            var brokenChart = echarts.init(document.getElementById('taskline'));
+                            brokenChart.hideLoading();    //隐藏加载动画
+                            
+                            brokenOption = {
+                                    title: {//标题组件
+                                        text: data.title
+                                    },
+                            	    tooltip: {
+                            	        trigger: 'axis'
+                            	    },
+                            	    toolbox: {
+                            	        feature: {
+                            	            dataView: {show: true, readOnly: false},
+                            	            magicType: {show: true, type: ['line', 'bar']},
+                            	            restore: {show: true},
+                            	            saveAsImage: {show: true}
+                            	        }
+                            	    },
+                            	    legend: {
+                            	        data:[result.legend.data[0],result.legend.data[1]]
+                            	    },
+                            	    xAxis: [
+                            	        {
+                            	            type: 'category',
+                            	            axisLabel:{
+                                                interval:0,
+                                              rotate:45,
+                                              margin:2,
+                                              textStyle:{
+                                                  color:"#222"
+                                              }
+                                          },
+                            	            data: result.xAxis[0].data
+                            	        }
+                            	    ],
+                            	   /* grid: { // 控制图的大小，调整下面这些值就可以，
+                                        x: 40,
+                                        x2: 100,
+                                        y2: 150,// y2可以控制 X轴跟Zoom控件之间的间隔，避免以为倾斜后造成 label重叠到zoom上
+                                    },*/
+                            	    yAxis: [
+                            	        {
+                            	            type: 'value',
+                            	            name: result.yAxis[0].name,
+                            	            min: 0,
+                            	            max: 100,
+                            	            interval:10,
+                            	            axisLabel: {
+                            	                formatter: '{value}'
+                            	            }
+                            	        },
+                            	        {
+                            	            type: 'value',
+                            	            name: result.yAxis[1].name,
+                            	            min: 0,
+                            	            max:100,
+                            	            interval:10,
+                            	            axisLabel: {
+                            	                formatter: '{value}'
+                            	            }
+                            	        }
+                            	    ],
+                            	    series: [
+                            	        {
+                            	            name:result.series[0].name,
+                            	            type:'bar',
+                            	            data:result.series[0].data
+                            	        },
+                            	        {
+                            	            name:result.series[1].name,
+                            	            type:'line',
+                            	            yAxisIndex: 1,
+                            	            data:result.series[1].data
+                            	        }
+                            	    ]
+                            	};
+                            brokenChart.setOption(brokenOption);
+                        }
+                    },
+                    error: function(errorMsg) {
+                        alert("图表请求数据失败!");
+                        brokenChart.hideLoading();
+                    }
+                });
+            }
+
+            function storyline() {
+                $.ajax({
+                    type: "get",
+                    async: true,
+                    url: "/sprintline/storyline/",
+                    dataType: "json",
+                    success: function(data) {
+                        if (data.info) {
+                            var result = data.info;
+                            var brokenChart = echarts.init(document.getElementById('storyline'));
+                            brokenChart.hideLoading();    //隐藏加载动画
+                            //参数设置
+                            
+                        brokenOption = {
+                           	title: {//标题组件
+                                        text: data.title
+                                    },
+						    tooltip: {
+						        trigger: 'axis'
+						    },
+						    toolbox: {
+						        feature: {
+						            dataView: {show: true, readOnly: false},
+						            magicType: {show: true, type: ['line', 'bar']},
+						            restore: {show: true},
+						            saveAsImage: {show: true}
+						        }
+						    },
+						    legend: {
+						        data:[result.legend.data[0],result.legend.data[1],result.legend.data[2]]
+						    },
+						    xAxis: [
+						        {
+						            type: 'category',
+                    	            axisLabel:{
+                                        interval:0,
+                                      rotate:45,
+                                      margin:2,
+                                      textStyle:{
+                                          color:"#222"
+                                      }
+                                  },
+						            data: result.xAxis[0].data
+						        }
+						    ],
+                    	    yAxis: [
+                        	        {
+                        	            type: 'value',
+                        	            name: result.yAxis[0].name,
+                        	            min: 0,
+                        	            max: 50,
+                        	            interval: 10,
+                        	            axisLabel: {
+                        	                formatter: '{value}'
+                        	            }
+                        	        },
+                        	        {
+                        	            type: 'value',
+                        	            name: result.yAxis[1].name,
+                        	            min: 0,
+                        	            max: 200,
+                        	            interval: 40,
+                        	            axisLabel: {
+                        	                formatter: '{value}'
+                        	            }
+                        	        }
+                        	    ],
+                        	    series: [
+                             	        {
+                             	            name:result.series[0].name,
+                             	            type:'bar',
+                             	            data:result.series[0].data
+                             	        },
+                             	        {
+                             	            name:result.series[1].name,
+                             	            type:'bar',
+                             	            data:result.series[1].data
+                             	        },
+                             	        {
+                             	            name:result.series[2].name,
+                             	            type:'line',
+                             	            yAxisIndex: 1,
+                             	            data:result.series[2].data
+                             	        }
+                             	    ]
+						};
+                            brokenChart.setOption(brokenOption);
+							//brokenChart.resize();
+                        }
+                    },
+                    error: function(errorMsg) {
+                        alert("图表请求数据失败!");
+                        brokenChart.hideLoading();
+                    }
+                });
+            }
+            function teambugline() {
+                $.ajax({
+                    type: "get",
+                    async: true,
+                    url: "/sprintline/teambugline/",
+                    dataType: "json",
+                    success: function(data) {
+                        if (data.info) {
+                            var result = data.info;
+                            var brokenChart = echarts.init(document.getElementById('teambugline'));
+                            brokenChart.hideLoading();    //隐藏加载动画
+                            
+                            brokenOption = {
+                                    title: {//标题组件
+                                        text: data.title
+                                    },
+                            	    tooltip: {
+                            	        trigger: 'axis'
+                            	    },
+                            	    toolbox: {
+                            	        feature: {
+                            	            dataView: {show: true, readOnly: false},
+                            	            magicType: {show: true, type: ['line', 'bar']},
+                            	            restore: {show: true},
+                            	            saveAsImage: {show: true}
+                            	        }
+                            	    },
+                            	    legend: {
+                            	        data:[result.legend.data[0]]
+                            	    },
+                            	    xAxis: [
+                            	        {
+                            	            type: 'category',
+                            	            axisLabel:{
+                                                interval:0,
+                                              rotate:45,
+                                              margin:2,
+                                              textStyle:{
+                                                  color:"#222"
+                                              }
+                                          },
+                            	            data: result.xAxis[0].data
+                            	        }
+                            	    ],
+                            	    yAxis: [
+                            	        {
+                            	            type: 'value',
+                            	            name: result.yAxis[0].name,
+                            	            min: 0,
+                            	            max: 50,
+                            	            interval: 10,
+                            	            axisLabel: {
+                            	                formatter: '{value}'
+                            	            }
+                            	        }
+                            	    ],
+                            	    series: [
+                            	        {
+                            	            name:result.series[0].name,
+                            	            type:'bar',
+                            	            data:result.series[0].data
+                            	        },
+                            	    ]
+                            	};
+                            brokenChart.setOption(brokenOption);
+                        }
+                    },
+                    error: function(errorMsg) {
+                        alert("图表请求数据失败!");
+                        brokenChart.hideLoading();
+                    }
+                });
+            }
+
+            function teamjjfbline() {
+                $.ajax({
+                    type: "get",
+                    async: true,
+                    url: "/sprintline/teamjjfbline/",
+                    dataType: "json",
+                    success: function(data) {
+                        if (data.info) {
+                            var result = data.info;
+                            var brokenChart = echarts.init(document.getElementById('teamjjfbline'));
+                            brokenChart.hideLoading();    //隐藏加载动画
+                            
+                            brokenOption = {
+                                    title: {//标题组件
+                                        text: data.title
+                                    },
+                            	    tooltip: {
+                            	        trigger: 'axis'
+                            	    },
+                            	    toolbox: {
+                            	        feature: {
+                            	            dataView: {show: true, readOnly: false},
+                            	            magicType: {show: true, type: ['line', 'bar']},
+                            	            restore: {show: true},
+                            	            saveAsImage: {show: true}
+                            	        }
+                            	    },
+                            	    legend: {
+                            	        data:[result.legend.data[0]]
+                            	    },
+                            	    xAxis: [
+                            	        {
+                            	            type: 'category',
+                            	            axisLabel:{
+                                                interval:0,
+                                              rotate:45,
+                                              margin:2,
+                                              textStyle:{
+                                                  color:"#222"
+                                              }
+                                          },
+                            	            data: result.xAxis[0].data
+                            	        }
+                            	    ],
+                            	    yAxis: [
+                            	        {
+                            	            type: 'value',
+                            	            name: result.yAxis[0].name,
+                            	            min: 0,
+                            	            max: 15,
+                            	            interval: 5,
+                            	            axisLabel: {
+                            	                formatter: '{value}'
+                            	            }
+                            	        }
+                            	    ],
+                            	    series: [
+                            	        {
+                            	            name:result.series[0].name,
+                            	            type:'bar',
+                            	            data:result.series[0].data
+                            	        },
+                            	    ]
+                            	};
+                            brokenChart.setOption(brokenOption);
+                        }
+                    },
+                    error: function(errorMsg) {
+                        alert("图表请求数据失败!");
+                        brokenChart.hideLoading();
+                    }
+                });
+            }
+            function nsstoryline() {
+                $.ajax({
+                    type: "get",
+                    async: true,
+                    url: "/sprintline/nsstoryline/",
+                    dataType: "json",
+                    success: function(data) {
+                        if (data.info) {
+                            var result = data.info;
+                            var brokenChart = echarts.init(document.getElementById('nsstoryline'));
+                            brokenChart.hideLoading();    //隐藏加载动画
+                            //参数设置
+                            
+                        brokenOption = {
+                           	title: {//标题组件
+                                        text: data.title
+                                    },
+						    tooltip: {
+						        trigger: 'axis'
+						    },
+						    toolbox: {
+						        feature: {
+						            dataView: {show: true, readOnly: false},
+						            magicType: {show: true, type: ['line', 'bar']},
+						            restore: {show: true},
+						            saveAsImage: {show: true}
+						        }
+						    },
+						    legend: {
+						        data:[result.legend.data[0],result.legend.data[1],result.legend.data[2]]
+						    },
+						    xAxis: [
+						        {
+						            type: 'category',
+                    	            axisLabel:{
+                                        interval:0,
+                                      rotate:45,
+                                      margin:2,
+                                      textStyle:{
+                                          color:"#222"
+                                      }
+                                  },
+						            data: result.xAxis[0].data
+						        }
+						    ],
+                    	    yAxis: [
+                        	        {
+                        	            type: 'value',
+                        	            name: result.yAxis[0].name,
+                        	            min: 0,
+                        	            max: 50,
+                        	            interval: 10,
+                        	            axisLabel: {
+                        	                formatter: '{value}'
+                        	            }
+                        	        },
+                        	        {
+                        	            type: 'value',
+                        	            name: result.yAxis[1].name,
+                        	            min:0,
+                        	            max: 200,
+                        	            interval: 40,
+                        	            axisLabel: {
+                        	                formatter: '{value}'
+                        	            }
+                        	        }
+                        	    ],
+                        	    series: [
+                             	        {
+                             	            name:result.series[0].name,
+                             	            type:'bar',
+                             	            data:result.series[0].data
+                             	        },
+                             	        {
+                             	            name:result.series[1].name,
+                             	            type:'bar',
+                             	            data:result.series[1].data
+                             	        },
+                             	        {
+                             	            name:result.series[2].name,
+                             	            type:'line',
+                             	            yAxisIndex: 1,
+                             	            data:result.series[2].data
+                             	        }
+                             	    ]
+						};
+                            brokenChart.setOption(brokenOption);
+							//brokenChart.resize();
+                        }
+                    },
+                    error: function(errorMsg) {
+                        alert("图表请求数据失败!");
+                        brokenChart.hideLoading();
+                    }
+                });
+            }
+        </script>
+    </body>
+</html>

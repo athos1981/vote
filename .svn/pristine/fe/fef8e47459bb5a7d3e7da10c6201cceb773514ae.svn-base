@@ -1,0 +1,24 @@
+package com.bl.vote.domain;
+
+import java.util.List;
+
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.repository.query.Param;
+
+public interface VoteDao extends CrudRepository<Vote, Long> {
+	
+	/**
+	 * 统计投票数
+	 * @param OptionId
+	 * @return
+	 */
+	
+	@Query(value="SELECT count(*) cot FROM Vote where Option_id=:OptionId"
+			,nativeQuery=true)
+	
+	public int getVoteCot(@Param("OptionId") String OptionId) ;
+	
+	
+	
+}

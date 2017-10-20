@@ -1,0 +1,332 @@
+/* 样式调整 */
+.modal-header h4{
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.form-horizontal .control-label{
+    text-align:left;
+}
+
+.leftspace{
+  margin-left:5px;
+}
+
+.nop{
+  padding:0 0;
+}
+
+.defect{
+  text-decoration:line-through;
+}
+
+.font-bold{
+  font-weight:700;
+}
+
+.form-group .bg-wihite{
+  background:#fff;
+}
+
+.textplace-right{
+  text-align:right;
+}
+
+.position-left{
+  left:10px;
+}
+
+.fz14{
+  font-size:14px;
+}
+
+.color-dark{
+  color:#333;
+}
+
+.color-dark:hover, .color-dark:link, .color-dark:visited{
+  color:#333;
+}
+
+.title-left{
+  float:left;
+}
+
+.title-right{
+  float:right;
+}
+
+.topspace{
+  margin-top:30px;
+}
+
+
+/* 树状图相关CSS */
+.base-frame{
+  position:relative;
+}
+
+.ztree{
+  opacity:0;
+  position:absolute;
+  left:0;
+  top:26px;
+  background:#fff;
+  margin:0 0;
+  transition: all .3s ease;
+  -moz-transition: all .3s ease;
+  -webkit-transition: all .3s ease;
+  -o-transition: all .3s ease;
+  -ms-transition: all .3s ease;
+  height:0;
+  overflow-y:auto;
+  overflow-x:visible;
+}
+
+.color-dark:hover .ztree{
+  opacity:1;
+  z-index:100;
+  height:330px;
+}
+
+.tree-file {
+    width: 19px;
+    height: 24px;
+}
+
+.tree-folder {
+  width: 24px;
+    height: 24px;
+  background-image:url('<?php echo IMAGE_URL; ?>/js/jstree/themes/default/40px.png');
+  background-position: -27px -28px;
+  background-size: 80px;
+}
+.tree-folder-open {
+  width: 24px;
+    height: 24px;
+  background-image:url('<?php echo IMAGE_URL; ?>/js/jstree/themes/default/40px.png');
+  background-position: -27px -28px;
+  background-size: 80px;
+}
+.tree-file {
+  background-image:url('<?php echo IMAGE_URL; ?>/js/jstree/themes/default/40px.png');
+  background-position: -4px -108px;
+  background-size: 80px;
+}
+.tree-title {
+    line-height: 25px;
+}
+    body {
+        height: auto;
+        /*background-color: #fff;*/
+        padding-top: 0px;
+    }
+    #fm {
+        margin: 0;
+        padding: 10px 30px;
+    }
+
+    .ftitle {
+        font-size: 14px;
+        font-weight: bold;
+        padding: 5px 0;
+        margin-bottom: 10px;
+        border-bottom: 1px solid #ccc;
+    }
+
+    .fitem {
+        margin-bottom: 5px;
+    }
+
+    .fitem label {
+        display: inline-block;
+        width: 80px;
+    }
+
+    .fitem input {
+        width: 160px;
+    }
+
+    .radioformr {
+        width: 5px;
+    }
+
+    .datagrid-row {
+    height: 25px;
+}
+
+.tree-none{
+  display:none;
+}
+
+.tree-show{
+  display:block;
+}
+
+/* 简单数据图样式修正 */
+.box-height{
+   height:341px;
+   overflow:hidden;
+}
+
+.box-height2{
+   height:341px;
+   overflow:hidden;
+   padding:0 10px;   
+}
+
+.box-header-size{
+  padding:18px 10px 18px 10px;
+}
+
+.box-header .box-tools-position{
+  top:13px;
+}
+
+.box-header .total-huge{
+  margin-left:15px;
+  font-size:14px;
+}
+
+/*报表页面样式调整*/
+.content-header .breadcrumb-position{
+  margin-top:10px;
+  width:50%;
+}
+
+/* 时间轴 */
+.col-md-13{
+  width:14.28571428%;
+  float:left;
+}
+
+.pd15{
+  padding:15px 15px 30px 15px;
+}
+
+.time-word{
+   width:100%;
+   height:60px;
+   line-height:60px;
+   text-align:center;
+   color:#333;
+   font-size:16px;
+   float:left;
+   font-weight:bold;
+}
+
+.two-line{
+  width:100%;
+  line-height:20px;
+  height:60px;
+  padding:5px 0;
+}
+
+.time-frame{
+  float:left;
+  width:100%;
+  height:50px;
+  position:relative;
+}
+
+.time-line{
+  width:100%;
+  height:25px;
+  border-bottom:2px dotted #ddd;
+  float:left;
+}
+
+.time-outicon{
+  width:60px;
+  height:60px;
+  border-radius:30px;
+  position:absolute;
+  top:50%;
+  left:50%;
+  background:#fff;
+  margin:-30px 0 0 -30px;
+  z-index:51;
+  box-shadow:0 0 10px #333;
+}
+
+.time-icon{
+  width:50px;
+  height:50px;
+  border-radius:25px;
+  position:absolute;
+  top:50%;
+  left:50%;
+  background:#ddd;
+  margin:-25px 0 0 -25px;
+  z-index:51;
+  line-height:50px;
+  font-size:30px;
+  color:#fff;
+  font-weight:bold;
+  text-align:center;
+}
+
+/* 圆球着色*/
+.time-color-blue1{
+  background: -webkit-linear-gradient(left top, rgba(21,101,192,1), rgba(25,118,210,1)); /* Safari 5.1 - 6.0 */
+  background: -o-linear-gradient(bottom right, rgba(25,118,210,1) , rgba(21,101,192,1)); /* Opera 11.1 - 12.0 */
+  background: -moz-linear-gradient(bottom right, rgba(25,118,210,1) , rgba(21,101,192,1)); /* Firefox 3.6 - 15 */
+  background: linear-gradient(to bottom right, rgba(25,118,210,1) , rgba(21,101,192,1)); /* 标准的语法 */
+}
+
+.time-color-blue2{
+  background: -webkit-linear-gradient(left top, rgba(2,119,189,1) ,rgba(2,136,209,1)); /* Safari 5.1 - 6.0 */
+  background: -o-linear-gradient(bottom right, rgba(2,136,209,1) , rgba(2,119,189,1)); /* Opera 11.1 - 12.0 */
+  background: -moz-linear-gradient(bottom right, rgba(2,136,209,1) , rgba(2,119,189,1)); /* Firefox 3.6 - 15 */
+  background: linear-gradient(to bottom right, rgba(2,136,209,1) , rgba(2,119,189,1)); /* 标准的语法 */
+}
+
+.time-color-green1{
+  background: -webkit-linear-gradient(left top, rgba(0,131,143,1), rgba(0,151,167,1)); /* Safari 5.1 - 6.0 */
+  background: -o-linear-gradient(bottom right, rgba(0,151,167,1) , rgba(0,131,143,1)); /* Opera 11.1 - 12.0 */
+  background: -moz-linear-gradient(bottom right, rgba(0,151,167,1) , rgba(0,131,143,1)); /* Firefox 3.6 - 15 */
+  background: linear-gradient(to bottom right, rgba(0,151,167,1) , rgba(0,131,143,1)); /* 标准的语法 */
+}
+
+.time-color-green2{
+  background: -webkit-linear-gradient(left top, rgba(46,125,50,1), rgba(56,142,60,1)); /* Safari 5.1 - 6.0 */
+  background: -o-linear-gradient(bottom right, rgba(56,142,60,1) , rgba(46,125,50,1)); /* Opera 11.1 - 12.0 */
+  background: -moz-linear-gradient(bottom right, rgba(56,142,60,1) , rgba(46,125,50,1)); /* Firefox 3.6 - 15 */
+  background: linear-gradient(to bottom right, rgba(56,142,60,1) , rgba(46,125,50,1)); /* 标准的语法 */
+}
+
+.time-color-green3{
+  background: -webkit-linear-gradient(left top, rgba(85,139,47,1), rgba(104,159,56,1)); /* Safari 5.1 - 6.0 */
+  background: -o-linear-gradient(bottom right, rgba(104,159,56,1) , rgba(85,139,47,1)); /* Opera 11.1 - 12.0 */
+  background: -moz-linear-gradient(bottom right, rgba(104,159,56,1) , rgba(85,139,47,1)); /* Firefox 3.6 - 15 */
+  background: linear-gradient(to bottom right, rgba(104,159,56,1) , rgba(85,139,47,1)); /* 标准的语法 */
+}
+
+.time-color-red1{
+  background: -webkit-linear-gradient(left top, rgba(216,67,21,1), rgba(230,74,25,1)); /* Safari 5.1 - 6.0 */
+  background: -o-linear-gradient(bottom right, rgba(230,74,25,1) , rgba(216,67,21,1)); /* Opera 11.1 - 12.0 */
+  background: -moz-linear-gradient(bottom right, rgba(230,74,25,1) , rgba(216,67,21,1)); /* Firefox 3.6 - 15 */
+  background: linear-gradient(to bottom right, rgba(230,74,25,1) , rgba(216,67,21,1)); /* 标准的语法 */
+}
+
+.time-color-red2{
+  background: -webkit-linear-gradient(left top, rgba(198,40,40,1), rgba(211,47,47,1)); /* Safari 5.1 - 6.0 */
+  background: -o-linear-gradient(bottom right, rgba(211,47,47,1) , rgba(198,40,40,1)); /* Opera 11.1 - 12.0 */
+  background: -moz-linear-gradient(bottom right, rgba(211,47,47,1) , rgba(198,40,40,1)); /* Firefox 3.6 - 15 */
+  background: linear-gradient(to bottom right, rgba(211,47,47,1) , rgba(198,40,40,1)); /* 标准的语法 */
+}
+
+.time-color-yellow1{
+  background: -webkit-linear-gradient(left top, rgba(255,143,0,1), rgba(255,160,0,1)); /* Safari 5.1 - 6.0 */
+  background: -o-linear-gradient(bottom right, rgba(255,160,0,1) , rgba(255,143,0,1)); /* Opera 11.1 - 12.0 */
+  background: -moz-linear-gradient(bottom right, rgba(255,160,0,1) , rgba(255,143,0,1)); /* Firefox 3.6 - 15 */
+  background: linear-gradient(to bottom right, rgba(255,160,0,1) , rgba(255,143,0,1)); /* 标准的语法 */
+}
+
+.time-color-yellow2{
+  background: -webkit-linear-gradient(left top, rgba(239,108,0,1), rgba(245,124,0,1)); /* Safari 5.1 - 6.0 */
+  background: -o-linear-gradient(bottom right, rgba(245,124,0,1) , rgba(239,108,0,1)); /* Opera 11.1 - 12.0 */
+  background: -moz-linear-gradient(bottom right, rgba(245,124,0,1) , rgba(239,108,0,1)); /* Firefox 3.6 - 15 */
+  background: linear-gradient(to bottom right, rgba(245,124,0,1) , rgba(239,108,0,1)); /* 标准的语法 */
+}
+

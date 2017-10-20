@@ -1,0 +1,4 @@
+spring.datasource.url = jdbc:h2:./dbfile
+spring.datasource.username = sa
+spring.datasource.password = sa
+spring.jpa.hibernate.ddl-auto = update

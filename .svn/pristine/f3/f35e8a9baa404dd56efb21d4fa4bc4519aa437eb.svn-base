@@ -1,0 +1,127 @@
+package com.bl.vote.service;
+
+import java.util.Date;
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.bl.vote.domain.Option;
+import com.bl.vote.domain.OptionDao;
+import com.bl.vote.domain.Poll;
+import com.bl.vote.domain.PollDao;
+import com.bl.vote.domain.Vote;
+import com.bl.vote.domain.VoteDao;
+
+@Service
+public class VoteService {
+	
+	@Autowired
+	private PollDao pollDao;
+	@Autowired
+	private OptionDao optionDao;
+	@Autowired
+	private VoteDao voteDao;
+	
+	/**
+	 * 查询所有题目
+	 * @return
+	 */
+	public Iterable<Poll>  findAll(){
+		
+		return pollDao.findAll();
+	}
+	
+	
+	/**
+	 * 新增题目 返回编号
+	 * @param content
+	 * @return
+	 */
+public long addPoll(String content){
+	
+	    Poll p = new Poll();
+	    p.setContent(content);
+	    pollDao.save(p);
+		return p.getId();
+		
+	}
+/**
+ * 根据题目查找答案
+ * @param pollId
+ * @return
+ */
+            public List<Option> findOptionByPollId(String pollId){
+            	
+            	return optionDao.findOptionByPollId(pollId);
+            }
+
+	/**
+	 * 新增答案
+	 * @param pollId
+	 * @param content
+	 * @return
+	 */
+            public long addOption(long pollId,String content){
+            	
+            	Option o =  new Option();
+            	o.setPollId(pollId);
+            	o.setContent(content);
+            	optionDao.save(o);
+            	return o.getId();
+            	
+            }
+            
+            /**
+             * 删除答案
+             * @param id
+             */
+            public void deleteOptionById(long id){
+            	optionDao.delete(id);
+            }
+            
+            /**
+             * 修改答案
+             * @param id
+             * @param pollId
+             * @param content
+             * @return
+             */
+          public long editOption(long id,long pollId,String content){
+            	
+            	Option o =  new Option();
+            	o.setId(id);
+            	o.setPollId(pollId);
+            	o.setContent(content);
+            	optionDao.save(o);
+            	return o.getId();
+            	
+            }
+            
+          /**
+           * 新增投票
+           * @param optionId
+           * @return
+           */
+          public String addVote(long optionId){
+        	  Vote v = new Vote();
+        	  v.setOptionId(optionId);
+        	  v.setcTime(new Date());
+        	  voteDao.save(v);
+        	  return "Vote Success";
+        	  
+          }
+          
+          /**
+           * 统计数据
+           * @param OptionId
+           * @return
+           */
+          public int getVoteCot(String OptionId){
+        	  
+        	  return voteDao.getVoteCot(OptionId);
+          }
+          
+	
+
+}

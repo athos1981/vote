@@ -1,0 +1,1374 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>报表统计</title>
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <link rel="stylesheet" href="../admin/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../admin/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../admin/css/ionicons.min.css">
+    <link rel="stylesheet" href="../admin/dist/css/adminLTE.css">
+    <link rel="stylesheet" href="../admin/plugins/ztree/metro.css">
+    <link rel="stylesheet" href="../admin/dist/css/skins/_all-skins.min.css">
+    <link rel="stylesheet" href="../admin/css/data-common.css">
+    <!--[if IE]>
+      <script src="js/html5shiv.js"></script>
+      <script src="js/excanvas.js"></script>
+      <script src="js/respond.min.js"></script>
+  <![endif]-->
+    <!--[if lte IE 7]>
+    <script type="text/javascript">
+        window.location.href = 'close-ie.html';
+    </script>
+  <![endif]-->
+</head>
+
+<body class="skin-blue sidebar-mini">
+    <div class="wrapper">
+        <!-- Content Wrapper. Contains page content -->
+        <div class="content-wrapper" style="margin-left:0;">
+            <section class="content-header">
+                <h3>              
+                  <a href="javascript:void(0);" class="color-dark base-frame">
+                      <i class="fa fa-bars"></i>
+                      选择团队
+                      <ul id="tree" class="ztree" style="overflow:auto;"></ul>
+                  </a>
+                  
+                </h3>
+            </section>
+            <!-- Content Header (Page header) -->
+            <section class="content-header">
+                <h5>
+                    <div class="row">
+                        <div class="col-md-6">
+                        </div>
+                        <div class="col-md-6">
+                            <form class="form-horizontal">
+                                <div class="box-body nop">
+                                    <div class="form-group">
+                                        <label class="col-sm-2 control-label">选择迭代</label>
+                                        <div class="col-sm-5">
+                                            <select class="form-control">
+                                                <option>option 1</option>
+                                                <option>option 2</option>
+                                                <option>option 3</option>
+                                                <option>option 4</option>
+                                                <option>option 5</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                               
+                                </div>
+                                <!-- /.box-body -->
+                            </form>
+                        </div>
+                    </div>
+                </h5>
+                <ol class="breadcrumb position-left tree-none breadcrumb-position" style="display:block;">
+                    <li><a class="fz14" href="#"><i class="fa fa-dashboard"></i> 研发中心</a></li>
+                    <li><a class="fz14" href="#">中台开发部</a></li>
+                    <li class="active fz14">会员大组</li>
+                </ol>               
+            </section>
+            <section class="content">
+                <div class="row pd15">
+                    <div class="col-md-13">
+                        <div class="time-word">
+                            需求收口日
+                        </div>
+                        <div class="time-frame">
+                            <div class="time-line"></div>
+                            <div class="time-outicon"></div>
+                            <div class="time-icon time-color-blue1">1</div>
+                        </div>
+                        <div class="time-word">
+                            2015-05-02
+                        </div>
+                    </div>
+                    <div class="col-md-13">
+                        <div class="time-word two-line">
+                            任务拆解日<br>
+                            迭代排期日
+                        </div>
+                        <div class="time-frame">
+                            <div class="time-line"></div>
+                            <div class="time-outicon"></div>
+                            <div class="time-icon time-color-blue2">2</div>
+                        </div>
+                        <div class="time-word">
+                            2015-05-03
+                        </div>
+                    </div>
+                     <div class="col-md-13">
+                        <div class="time-word">
+                            迭代开始日
+                        </div>
+                        <div class="time-frame">
+                            <div class="time-line"></div>
+                            <div class="time-outicon"></div>
+                            <div class="time-icon time-color-green2">3</div>
+                        </div>
+                        <div class="time-word">
+                            2015-05-04
+                        </div>
+                    </div>
+                     <div class="col-md-13">
+                        <div class="time-word">
+                            SIT提测日
+                        </div>
+                        <div class="time-frame">
+                            <div class="time-line"></div>
+                            <div class="time-outicon"></div>
+                            <div class="time-icon time-color-green3">4</div>
+                        </div>
+                        <div class="time-word">
+                            2015-05-05
+                        </div>
+                    </div>
+                     <div class="col-md-13">
+                        <div class="time-word">
+                            PRE提测日
+                        </div>
+                        <div class="time-frame">
+                            <div class="time-line"></div>
+                            <div class="time-outicon"></div>
+                            <div class="time-icon time-color-yellow2">5</div>
+                        </div>
+                        <div class="time-word">
+                            2015-05-06
+                        </div>
+                    </div>
+                     <div class="col-md-13">
+                        <div class="time-word">
+                            迭代结束日
+                        </div>
+                        <div class="time-frame">
+                            <div class="time-line"></div>
+                            <div class="time-outicon"></div>
+                            <div class="time-icon time-color-red1">6</div>
+                        </div>
+                        <div class="time-word">
+                            2015-05-07
+                        </div>
+                    </div>
+                     <div class="col-md-13">
+                        <div class="time-word">
+                            迭代发布日
+                        </div>
+                        <div class="time-frame">
+                            <div class="time-line"></div>
+                            <div class="time-outicon"></div>
+                            <div class="time-icon time-color-red2">7</div>
+                        </div>
+                        <div class="time-word">
+                            2015-05-08
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4 col-sm-6 col-xs-12">
+                        <div class="info-box bg-aqua">
+                            <span class="info-box-icon"><i class="fa fa-flag-o"></i></span>
+                            <div class="info-box-content">
+                                <span class="info-box-text">迭代任务</span>
+                                <span class="info-box-number">123</span>
+                                <div class="progress">
+                                    <div class="progress-bar" style="width: 70%"></div>
+                                </div>
+                                <span class="progress-description">
+                                    88% 提测率
+                                </span>
+                            </div>
+                            <!-- /.info-box-content -->
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-sm-6 col-xs-12">
+                        <div class="info-box bg-green">
+                            <span class="info-box-icon"><i class="fa fa-thumbs-o-up"></i></span>
+                            <div class="info-box-content">
+                                <span class="info-box-text">需上线任务</span>
+                                <span class="info-box-number">333</span>
+                                <div class="progress">
+                                    <div class="progress-bar" style="width: 70%"></div>
+                                </div>
+                                <span class="progress-description">
+                                    70% pre上线率
+                                </span>
+                            </div>
+                            <!-- /.info-box-content -->
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-sm-6 col-xs-12">
+                        <div class="info-box bg-red">
+                            <span class="info-box-icon"><i class="fa fa-comments-o"></i></span>
+                            <div class="info-box-content">
+                                <span class="info-box-text">迭代BUG</span>
+                                <span class="info-box-number">100</span>
+                                <div class="progress">
+                                    <div class="progress-bar" style="width: 70%"></div>
+                                </div>
+                                <span class="progress-description">
+                                    70% 修复率
+                                </span>
+                            </div>
+                            <!-- /.info-box-content -->
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4 col-sm-6 col-xs-12">
+                        <div class="info-box">
+                            <span class="info-box-icon bg-aqua"><i class="fa fa-envelope-o"></i></span>
+                            <div class="info-box-content">
+                                <span class="info-box-text">参与修复</span>
+                                <span class="info-box-number">1,410</span>
+                            </div>
+                            <!-- /.info-box-content -->
+                        </div>
+                        <!-- /.info-box -->
+                    </div>
+                    <!-- /.col -->
+                    <div class="col-md-4 col-sm-6 col-xs-12">
+                        <div class="info-box">
+                            <span class="info-box-icon bg-green"><i class="fa fa-flag-o"></i></span>
+                            <div class="info-box-content">
+                                <span class="info-box-text">平均响应(人/天)</span>
+                                <span class="info-box-number">410</span>
+                            </div>
+                            <!-- /.info-box-content -->
+                        </div>
+                        <!-- /.info-box -->
+                    </div>
+                    <!-- /.col -->
+                    <div class="col-md-4 col-sm-6 col-xs-12">
+                        <div class="info-box">
+                            <span class="info-box-icon bg-red"><i class="fa fa-star-o"></i></span>
+                            <div class="info-box-content">
+                                <span class="info-box-text">紧急发布</span>
+                                <span class="info-box-number">93,139</span>
+                            </div>
+                            <!-- /.info-box-content -->
+                        </div>
+                        <!-- /.info-box -->
+                    </div>
+                    <!-- /.col -->
+                </div>
+                <div class="row">
+                    <div class="col-xs-12">
+                        <div class="box">
+                            <div class="box-header">
+                                <h3 class="box-title">迭代前期故事情况</h3>
+                            </div>
+                            <!-- /.box-header -->
+                            <div class="box-body table-responsive no-padding">
+                                <table class="table table-striped">
+                                    <tbody>
+                                        <tr>
+                                            <th>#</th>
+                                            <th>计划日</th>
+                                            <th>排期日</th>
+                                            <th>计划剩余</th>
+                                            <th>新增</th>
+                                            <th>移除</th>
+                                            <th>故事拆解</th>
+                                        </tr>
+                                        <tr>
+                                            <td>迭代故事</td>
+                                            <td>30</td>
+                                            <td>30</td>
+                                            <td>20</td>
+                                            <td>20</td>
+                                            <td>20</td>
+                                            <td>2</td>
+                                        </tr>
+                                        <tr>
+                                            <td>上线故事</td>
+                                            <td>30</td>
+                                            <td>30</td>
+                                            <td>20</td>
+                                            <td>20</td>
+                                            <td>20</td>
+                                            <td>2</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <!-- /.box-body -->
+                        </div>
+                        <!-- /.box -->
+                    </div>
+                    <div class="col-xs-12">
+                        <div class="box">
+                            <div class="box-header">
+                                <h3 class="box-title">最终迭代情况</h3>
+                            </div>
+                            <!-- /.box-header -->
+                            <div class="box-body table-responsive no-padding">
+                                <table class="table table-striped">
+                                    <tbody>
+                                        <tr>
+                                            <th>#</th>
+                                            <th>计划日</th>
+                                            <th>排期日</th>
+                                            <th>计划剩余</th>
+                                            <th>新增</th>
+                                            <th>移除</th>
+                                        </tr>
+                                        <tr>
+                                            <td>迭代故事</td>
+                                            <td>30</td>
+                                            <td>30</td>
+                                            <td>20</td>
+                                            <td>20</td>
+                                            <td>20</td>
+                                        </tr>
+                                        <tr>
+                                            <td>上线故事</td>
+                                            <td>30</td>
+                                            <td>30</td>
+                                            <td>20</td>
+                                            <td>20</td>
+                                            <td>20</td>
+                                        </tr>
+                                        <tr>
+                                            <td>迭代故事</td>
+                                            <td>30</td>
+                                            <td>30</td>
+                                            <td>20</td>
+                                            <td>20</td>
+                                            <td>20</td>
+                                        </tr>
+                                        <tr>
+                                            <td>上线故事</td>
+                                            <td>30</td>
+                                            <td>30</td>
+                                            <td>20</td>
+                                            <td>20</td>
+                                            <td>20</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <!-- /.box-body -->
+                        </div>
+                        <!-- /.box -->
+                    </div>
+                    <div class="col-xs-12">
+                        <div class="box">
+                            <div class="box-header">
+                                <h3 class="box-title">最终上线情况</h3>
+                            </div>
+                            <!-- /.box-header -->
+                            <div class="box-body table-responsive no-padding">
+                                <table class="table table-striped">
+                                    <tbody>
+                                        <tr>
+                                            <th>#</th>
+                                            <th>计划日</th>
+                                            <th>排期日</th>
+                                            <th>计划剩余</th>
+                                            <th>新增</th>
+                                            <th>移除</th>
+                                            <th>进度条</th>
+                                            <th>完成率</th>
+                                        </tr>
+                                        <tr>
+                                            <td>迭代故事</td>
+                                            <td>30</td>
+                                            <td>30</td>
+                                            <td>20</td>
+                                            <td>20</td>
+                                            <td>20</td>
+                                            <td>
+                                                <div class="progress progress-xs progress-striped active">
+                                                    <div class="progress-bar progress-bar-success" style="width: 90%"></div>
+                                                </div>
+                                            </td>
+                                            <td><span class="badge bg-green">90%</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td>上线故事</td>
+                                            <td>30</td>
+                                            <td>30</td>
+                                            <td>20</td>
+                                            <td>20</td>
+                                            <td>20</td>
+                                            <td>
+                                                <div class="progress progress-xs">
+                                                    <div class="progress-bar progress-bar-yellow" style="width: 70%"></div>
+                                                </div>
+                                            </td>
+                                            <td><span class="badge bg-yellow">70%</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td>迭代故事</td>
+                                            <td>30</td>
+                                            <td>30</td>
+                                            <td>20</td>
+                                            <td>20</td>
+                                            <td>20</td>
+                                            <td>
+                                                <div class="progress progress-xs">
+                                                    <div class="progress-bar progress-bar-danger" style="width: 55%"></div>
+                                                </div>
+                                            </td>
+                                            <td><span class="badge bg-red">55%</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td>上线故事</td>
+                                            <td>30</td>
+                                            <td>30</td>
+                                            <td>20</td>
+                                            <td>20</td>
+                                            <td>20</td>
+                                            <td>
+                                                <div class="progress progress-xs progress-striped active">
+                                                    <div class="progress-bar progress-bar-primary" style="width: 30%"></div>
+                                                </div>
+                                            </td>
+                                            <td><span class="badge bg-light-blue">30%</span></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <!-- /.box-body -->
+                        </div>
+                        <!-- /.box -->
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="box">
+                            <div class="box-header box-header-size">
+                                <h3 class="box-title"><span>计划上线产品分布</span><span class="total-huge">总数:</span></h3>
+                            </div>
+                            <!-- /.box-header -->
+                            <div class="box-body box-height2">
+                                <table class="table table-bordered">
+                                    <tbody>
+                                        <tr>
+                                            <th style="width: 10px">#</th>
+                                            <th>产品名称</th>
+                                            <th>占比</th>
+                                            <th style="width: 40px">数量</th>
+                                        </tr>
+                                        <tr>
+                                            <td>1.</td>
+                                            <td>Update software</td>
+                                            <td>
+                                                <div class="progress progress-xs">
+                                                    <div class="progress-bar progress-bar-danger" style="width: 55%"></div>
+                                                </div>
+                                            </td>
+                                            <td><span class="badge bg-red">55%</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td>2.</td>
+                                            <td>Clean database</td>
+                                            <td>
+                                                <div class="progress progress-xs">
+                                                    <div class="progress-bar progress-bar-yellow" style="width: 70%"></div>
+                                                </div>
+                                            </td>
+                                            <td><span class="badge bg-yellow">70%</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td>3.</td>
+                                            <td>Cron job running</td>
+                                            <td>
+                                                <div class="progress progress-xs progress-striped active">
+                                                    <div class="progress-bar progress-bar-primary" style="width: 30%"></div>
+                                                </div>
+                                            </td>
+                                            <td><span class="badge bg-light-blue">30%</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td>4.</td>
+                                            <td>Fix and squish bugs</td>
+                                            <td>
+                                                <div class="progress progress-xs progress-striped active">
+                                                    <div class="progress-bar progress-bar-success" style="width: 90%"></div>
+                                                </div>
+                                            </td>
+                                            <td><span class="badge bg-green">90%</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td>5.</td>
+                                            <td>Update software</td>
+                                            <td>
+                                                <div class="progress progress-xs">
+                                                    <div class="progress-bar progress-bar-danger" style="width: 55%"></div>
+                                                </div>
+                                            </td>
+                                            <td><span class="badge bg-red">55%</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td>6.</td>
+                                            <td>Clean database</td>
+                                            <td>
+                                                <div class="progress progress-xs">
+                                                    <div class="progress-bar progress-bar-yellow" style="width: 70%"></div>
+                                                </div>
+                                            </td>
+                                            <td><span class="badge bg-yellow">70%</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td>7.</td>
+                                            <td>Cron job running</td>
+                                            <td>
+                                                <div class="progress progress-xs progress-striped active">
+                                                    <div class="progress-bar progress-bar-primary" style="width: 30%"></div>
+                                                </div>
+                                            </td>
+                                            <td><span class="badge bg-light-blue">30%</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td>8.</td>
+                                            <td>Fix and squish bugs</td>
+                                            <td>
+                                                <div class="progress progress-xs progress-striped active">
+                                                    <div class="progress-bar progress-bar-success" style="width: 90%"></div>
+                                                </div>
+                                            </td>
+                                            <td><span class="badge bg-green">90%</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td>9.</td>
+                                            <td>Update software</td>
+                                            <td>
+                                                <div class="progress progress-xs">
+                                                    <div class="progress-bar progress-bar-danger" style="width: 55%"></div>
+                                                </div>
+                                            </td>
+                                            <td><span class="badge bg-red">55%</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td>10.</td>
+                                            <td>Clean database</td>
+                                            <td>
+                                                <div class="progress progress-xs">
+                                                    <div class="progress-bar progress-bar-yellow" style="width: 70%"></div>
+                                                </div>
+                                            </td>
+                                            <td><span class="badge bg-yellow">70%</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td>11.</td>
+                                            <td>Cron job running</td>
+                                            <td>
+                                                <div class="progress progress-xs progress-striped active">
+                                                    <div class="progress-bar progress-bar-primary" style="width: 30%"></div>
+                                                </div>
+                                            </td>
+                                            <td><span class="badge bg-light-blue">30%</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td>12.</td>
+                                            <td>Fix and squish bugs</td>
+                                            <td>
+                                                <div class="progress progress-xs progress-striped active">
+                                                    <div class="progress-bar progress-bar-success" style="width: 90%"></div>
+                                                </div>
+                                            </td>
+                                            <td><span class="badge bg-green">90%</span></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <!-- /.box-body -->
+                            <div class="box-footer clearfix">
+                                <ul class="pagination pagination-sm no-margin pull-right">
+                                    <li><a href="#">«</a></li>
+                                    <li><a href="#">1</a></li>
+                                    <li><a href="#">2</a></li>
+                                    <li><a href="#">3</a></li>
+                                    <li><a href="#">»</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="box">
+                            <div class="box-header box-header-size">
+                                <h3 class="box-title"><span>最终产品需求分布</span><span class="total-huge">总数:</span></h3>
+                            </div>
+                            <!-- /.box-header -->
+                            <div class="box-body box-height2">
+                                <table class="table table-bordered">
+                                    <tbody>
+                                        <tr>
+                                            <th style="width: 10px">#</th>
+                                            <th>产品名称</th>
+                                            <th>占比</th>
+                                            <th style="width: 40px">数量</th>
+                                        </tr>
+                                        <tr>
+                                            <td>1.</td>
+                                            <td>Update software</td>
+                                            <td>
+                                                <div class="progress progress-xs">
+                                                    <div class="progress-bar progress-bar-danger" style="width: 55%"></div>
+                                                </div>
+                                            </td>
+                                            <td><span class="badge bg-red">55%</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td>2.</td>
+                                            <td>Clean database</td>
+                                            <td>
+                                                <div class="progress progress-xs">
+                                                    <div class="progress-bar progress-bar-yellow" style="width: 70%"></div>
+                                                </div>
+                                            </td>
+                                            <td><span class="badge bg-yellow">70%</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td>3.</td>
+                                            <td>Cron job running</td>
+                                            <td>
+                                                <div class="progress progress-xs progress-striped active">
+                                                    <div class="progress-bar progress-bar-primary" style="width: 30%"></div>
+                                                </div>
+                                            </td>
+                                            <td><span class="badge bg-light-blue">30%</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td>4.</td>
+                                            <td>Fix and squish bugs</td>
+                                            <td>
+                                                <div class="progress progress-xs progress-striped active">
+                                                    <div class="progress-bar progress-bar-success" style="width: 90%"></div>
+                                                </div>
+                                            </td>
+                                            <td><span class="badge bg-green">90%</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td>5.</td>
+                                            <td>Update software</td>
+                                            <td>
+                                                <div class="progress progress-xs">
+                                                    <div class="progress-bar progress-bar-danger" style="width: 55%"></div>
+                                                </div>
+                                            </td>
+                                            <td><span class="badge bg-red">55%</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td>6.</td>
+                                            <td>Clean database</td>
+                                            <td>
+                                                <div class="progress progress-xs">
+                                                    <div class="progress-bar progress-bar-yellow" style="width: 70%"></div>
+                                                </div>
+                                            </td>
+                                            <td><span class="badge bg-yellow">70%</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td>7.</td>
+                                            <td>Cron job running</td>
+                                            <td>
+                                                <div class="progress progress-xs progress-striped active">
+                                                    <div class="progress-bar progress-bar-primary" style="width: 30%"></div>
+                                                </div>
+                                            </td>
+                                            <td><span class="badge bg-light-blue">30%</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td>8.</td>
+                                            <td>Fix and squish bugs</td>
+                                            <td>
+                                                <div class="progress progress-xs progress-striped active">
+                                                    <div class="progress-bar progress-bar-success" style="width: 90%"></div>
+                                                </div>
+                                            </td>
+                                            <td><span class="badge bg-green">90%</span></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <!-- /.box-body -->
+                            <div class="box-footer clearfix">
+                                <ul class="pagination pagination-sm no-margin pull-right">
+                                    <li><a href="#">«</a></li>
+                                    <li><a href="#">1</a></li>
+                                    <li><a href="#">2</a></li>
+                                    <li><a href="#">3</a></li>
+                                    <li><a href="#">»</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="box">
+                            <div class="box-header box-header-size">
+                                <h3 class="box-title"><span>增加产品需求分布</span><span class="total-huge">总数:</span></h3>
+                            </div>
+                            <!-- /.box-header -->
+                            <div class="box-body box-height2">
+                                <table class="table table-bordered">
+                                    <tbody>
+                                        <tr>
+                                            <th style="width: 10px">#</th>
+                                            <th>产品名称</th>
+                                            <th>占比</th>
+                                            <th style="width: 40px">数量</th>
+                                        </tr>
+                                        <tr>
+                                            <td>1.</td>
+                                            <td>Update software</td>
+                                            <td>
+                                                <div class="progress progress-xs">
+                                                    <div class="progress-bar progress-bar-danger" style="width: 55%"></div>
+                                                </div>
+                                            </td>
+                                            <td><span class="badge bg-red">55%</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td>2.</td>
+                                            <td>Clean database</td>
+                                            <td>
+                                                <div class="progress progress-xs">
+                                                    <div class="progress-bar progress-bar-yellow" style="width: 70%"></div>
+                                                </div>
+                                            </td>
+                                            <td><span class="badge bg-yellow">70%</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td>3.</td>
+                                            <td>Cron job running</td>
+                                            <td>
+                                                <div class="progress progress-xs progress-striped active">
+                                                    <div class="progress-bar progress-bar-primary" style="width: 30%"></div>
+                                                </div>
+                                            </td>
+                                            <td><span class="badge bg-light-blue">30%</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td>4.</td>
+                                            <td>Fix and squish bugs</td>
+                                            <td>
+                                                <div class="progress progress-xs progress-striped active">
+                                                    <div class="progress-bar progress-bar-success" style="width: 90%"></div>
+                                                </div>
+                                            </td>
+                                            <td><span class="badge bg-green">90%</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td>5.</td>
+                                            <td>Update software</td>
+                                            <td>
+                                                <div class="progress progress-xs">
+                                                    <div class="progress-bar progress-bar-danger" style="width: 55%"></div>
+                                                </div>
+                                            </td>
+                                            <td><span class="badge bg-red">55%</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td>6.</td>
+                                            <td>Clean database</td>
+                                            <td>
+                                                <div class="progress progress-xs">
+                                                    <div class="progress-bar progress-bar-yellow" style="width: 70%"></div>
+                                                </div>
+                                            </td>
+                                            <td><span class="badge bg-yellow">70%</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td>7.</td>
+                                            <td>Cron job running</td>
+                                            <td>
+                                                <div class="progress progress-xs progress-striped active">
+                                                    <div class="progress-bar progress-bar-primary" style="width: 30%"></div>
+                                                </div>
+                                            </td>
+                                            <td><span class="badge bg-light-blue">30%</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td>8.</td>
+                                            <td>Fix and squish bugs</td>
+                                            <td>
+                                                <div class="progress progress-xs progress-striped active">
+                                                    <div class="progress-bar progress-bar-success" style="width: 90%"></div>
+                                                </div>
+                                            </td>
+                                            <td><span class="badge bg-green">90%</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td>9.</td>
+                                            <td>Update software</td>
+                                            <td>
+                                                <div class="progress progress-xs">
+                                                    <div class="progress-bar progress-bar-danger" style="width: 55%"></div>
+                                                </div>
+                                            </td>
+                                            <td><span class="badge bg-red">55%</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td>10.</td>
+                                            <td>Clean database</td>
+                                            <td>
+                                                <div class="progress progress-xs">
+                                                    <div class="progress-bar progress-bar-yellow" style="width: 70%"></div>
+                                                </div>
+                                            </td>
+                                            <td><span class="badge bg-yellow">70%</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td>11.</td>
+                                            <td>Cron job running</td>
+                                            <td>
+                                                <div class="progress progress-xs progress-striped active">
+                                                    <div class="progress-bar progress-bar-primary" style="width: 30%"></div>
+                                                </div>
+                                            </td>
+                                            <td><span class="badge bg-light-blue">30%</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td>12.</td>
+                                            <td>Fix and squish bugs</td>
+                                            <td>
+                                                <div class="progress progress-xs progress-striped active">
+                                                    <div class="progress-bar progress-bar-success" style="width: 90%"></div>
+                                                </div>
+                                            </td>
+                                            <td><span class="badge bg-green">90%</span></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <!-- /.box-body -->
+                            <div class="box-footer clearfix">
+                                <ul class="pagination pagination-sm no-margin pull-right">
+                                    <li><a href="#">«</a></li>
+                                    <li><a href="#">1</a></li>
+                                    <li><a href="#">2</a></li>
+                                    <li><a href="#">3</a></li>
+                                    <li><a href="#">»</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="box">
+                            <div class="box-header box-header-size">
+                                <h3 class="box-title"><span>减少产品需求分布</span><span class="total-huge">总数:</span></h3>
+                            </div>
+                            <!-- /.box-header -->
+                            <div class="box-body box-height2">
+                                <table class="table table-bordered">
+                                    <tbody>
+                                        <tr>
+                                            <th style="width: 10px">#</th>
+                                            <th>产品名称</th>
+                                            <th>占比</th>
+                                            <th style="width: 40px">数量</th>
+                                        </tr>
+                                        <tr>
+                                            <td>1.</td>
+                                            <td>Update software</td>
+                                            <td>
+                                                <div class="progress progress-xs">
+                                                    <div class="progress-bar progress-bar-danger" style="width: 55%"></div>
+                                                </div>
+                                            </td>
+                                            <td><span class="badge bg-red">55%</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td>2.</td>
+                                            <td>Clean database</td>
+                                            <td>
+                                                <div class="progress progress-xs">
+                                                    <div class="progress-bar progress-bar-yellow" style="width: 70%"></div>
+                                                </div>
+                                            </td>
+                                            <td><span class="badge bg-yellow">70%</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td>3.</td>
+                                            <td>Cron job running</td>
+                                            <td>
+                                                <div class="progress progress-xs progress-striped active">
+                                                    <div class="progress-bar progress-bar-primary" style="width: 30%"></div>
+                                                </div>
+                                            </td>
+                                            <td><span class="badge bg-light-blue">30%</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td>4.</td>
+                                            <td>Fix and squish bugs</td>
+                                            <td>
+                                                <div class="progress progress-xs progress-striped active">
+                                                    <div class="progress-bar progress-bar-success" style="width: 90%"></div>
+                                                </div>
+                                            </td>
+                                            <td><span class="badge bg-green">90%</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td>5.</td>
+                                            <td>Update software</td>
+                                            <td>
+                                                <div class="progress progress-xs">
+                                                    <div class="progress-bar progress-bar-danger" style="width: 55%"></div>
+                                                </div>
+                                            </td>
+                                            <td><span class="badge bg-red">55%</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td>6.</td>
+                                            <td>Clean database</td>
+                                            <td>
+                                                <div class="progress progress-xs">
+                                                    <div class="progress-bar progress-bar-yellow" style="width: 70%"></div>
+                                                </div>
+                                            </td>
+                                            <td><span class="badge bg-yellow">70%</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td>7.</td>
+                                            <td>Cron job running</td>
+                                            <td>
+                                                <div class="progress progress-xs progress-striped active">
+                                                    <div class="progress-bar progress-bar-primary" style="width: 30%"></div>
+                                                </div>
+                                            </td>
+                                            <td><span class="badge bg-light-blue">30%</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td>8.</td>
+                                            <td>Fix and squish bugs</td>
+                                            <td>
+                                                <div class="progress progress-xs progress-striped active">
+                                                    <div class="progress-bar progress-bar-success" style="width: 90%"></div>
+                                                </div>
+                                            </td>
+                                            <td><span class="badge bg-green">90%</span></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <!-- /.box-body -->
+                            <div class="box-footer clearfix">
+                                <ul class="pagination pagination-sm no-margin pull-right">
+                                    <li><a href="#">«</a></li>
+                                    <li><a href="#">1</a></li>
+                                    <li><a href="#">2</a></li>
+                                    <li><a href="#">3</a></li>
+                                    <li><a href="#">»</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+        <!-- /.content-wrapper -->
+    </div>
+    <!-- jQuery 2.2.3 -->
+    <script src="../admin/plugins/jQuery/jquery-2.2.3.min.js"></script>
+    <!-- Bootstrap 3.3.6 -->
+    <script src="../admin/bootstrap/js/bootstrap.min.js"></script>
+    <!-- ../adminLTE App -->
+    <script src="../admin/dist/js/app.min.js"></script>
+    <!-- ztree -->
+    <script src="../admin/plugins/ztree/jquery.ztree.all-3.5.min.js"></script>
+    <script src="echart/js/echarts.min.js"></script>
+    <script type="text/javascript">
+    $(function() {
+
+        var zTree;
+        var demoIframe;
+
+        var setting = {
+            check: {
+                enable: false
+            },
+            view: {
+                dblClickExpand: false,
+                showLine: true,
+                selectedMulti: false
+            },
+            data: {
+                simpleData: {
+                    enable: true,
+                    idKey: "id",
+                    pIdKey: "pId",
+                    rootPId: ""
+                }
+            },
+            callback: {
+                beforeClick: function(treeId, treeNode) {
+                    var zTree = $.fn.zTree.getZTreeObj("tree");
+                    if (treeNode.isParent) {
+                        zTree.expandNode(treeNode);
+                        return false;
+                    } else {
+                        demoIframe.attr("src", treeNode.file + ".html");
+                        return true;
+                    }
+                }
+            }
+        };
+
+        var zNodes = [{
+                id: 1,
+                pId: 0,
+                name: "研发中心",
+                open: true
+            }, {
+                id: 101,
+                pId: 1,
+                name: "最简单的树 --  标准 JSON 数据",
+                file: "core/standardData"
+            }, {
+                id: 102,
+                pId: 1,
+                name: "最简单的树 --  简单 JSON 数据",
+                file: "core/simpleData"
+            }, {
+                id: 103,
+                pId: 1,
+                name: "不显示 连接线",
+                file: "core/noline"
+            }, {
+                id: 104,
+                pId: 1,
+                name: "不显示 节点 图标",
+                file: "core/noicon"
+            }, {
+                id: 105,
+                pId: 1,
+                name: "自定义图标 --  icon 属性",
+                file: "core/custom_icon"
+            }, {
+                id: 106,
+                pId: 1,
+                name: "自定义图标 --  iconSkin 属性",
+                file: "core/custom_iconSkin"
+            }, {
+                id: 107,
+                pId: 1,
+                name: "自定义字体",
+                file: "core/custom_font"
+            }, {
+                id: 115,
+                pId: 1,
+                name: "超链接演示",
+                file: "core/url"
+            }, {
+                id: 108,
+                pId: 1,
+                name: "异步加载 节点数据",
+                file: "core/async"
+            }, {
+                id: 109,
+                pId: 1,
+                name: "用 zTree 方法 异步加载 节点数据",
+                file: "core/async_fun"
+            }, {
+                id: 110,
+                pId: 1,
+                name: "用 zTree 方法 更新 节点数据",
+                file: "core/update_fun"
+            }, {
+                id: 111,
+                pId: 1,
+                name: "单击 节点 控制",
+                file: "core/click"
+            }, {
+                id: 112,
+                pId: 1,
+                name: "展开 / 折叠 父节点 控制",
+                file: "core/expand"
+            }, {
+                id: 113,
+                pId: 1,
+                name: "根据 参数 查找 节点",
+                file: "core/searchNodes"
+            }, {
+                id: 114,
+                pId: 1,
+                name: "其他 鼠标 事件监听",
+                file: "core/otherMouse"
+            }, {
+                id: 11401,
+                pId: 114,
+                name: "测试",
+                file: "core/otherMouse"
+            }, {
+                id: 1140101,
+                pId: 11401,
+                name: "测试001",
+                file: "core/otherMouse"
+            },
+
+            {
+                id: 2,
+                pId: 0,
+                name: "[excheck] 复/单选框功能 演示",
+                open: false
+            }, {
+                id: 201,
+                pId: 2,
+                name: "Checkbox 勾选操作",
+                file: "excheck/checkbox"
+            }, {
+                id: 206,
+                pId: 2,
+                name: "Checkbox nocheck 演示",
+                file: "excheck/checkbox_nocheck"
+            }, {
+                id: 207,
+                pId: 2,
+                name: "Checkbox chkDisabled 演示",
+                file: "excheck/checkbox_chkDisabled"
+            }, {
+                id: 208,
+                pId: 2,
+                name: "Checkbox halfCheck 演示",
+                file: "excheck/checkbox_halfCheck"
+            }, {
+                id: 202,
+                pId: 2,
+                name: "Checkbox 勾选统计",
+                file: "excheck/checkbox_count"
+            }, {
+                id: 203,
+                pId: 2,
+                name: "用 zTree 方法 勾选 Checkbox",
+                file: "excheck/checkbox_fun"
+            }, {
+                id: 204,
+                pId: 2,
+                name: "Radio 勾选操作",
+                file: "excheck/radio"
+            }, {
+                id: 209,
+                pId: 2,
+                name: "Radio nocheck 演示",
+                file: "excheck/radio_nocheck"
+            }, {
+                id: 210,
+                pId: 2,
+                name: "Radio chkDisabled 演示",
+                file: "excheck/radio_chkDisabled"
+            }, {
+                id: 211,
+                pId: 2,
+                name: "Radio halfCheck 演示",
+                file: "excheck/radio_halfCheck"
+            }, {
+                id: 205,
+                pId: 2,
+                name: "用 zTree 方法 勾选 Radio",
+                file: "excheck/radio_fun"
+            },
+
+            {
+                id: 3,
+                pId: 0,
+                name: "[exedit] 编辑功能 演示",
+                open: false
+            }, {
+                id: 301,
+                pId: 3,
+                name: "拖拽 节点 基本控制",
+                file: "exedit/drag"
+            }, {
+                id: 302,
+                pId: 3,
+                name: "拖拽 节点 高级控制",
+                file: "exedit/drag_super"
+            }, {
+                id: 303,
+                pId: 3,
+                name: "用 zTree 方法 移动 / 复制 节点",
+                file: "exedit/drag_fun"
+            }, {
+                id: 304,
+                pId: 3,
+                name: "基本 增 / 删 / 改 节点",
+                file: "exedit/edit"
+            }, {
+                id: 305,
+                pId: 3,
+                name: "高级 增 / 删 / 改 节点",
+                file: "exedit/edit_super"
+            }, {
+                id: 306,
+                pId: 3,
+                name: "用 zTree 方法 增 / 删 / 改 节点",
+                file: "exedit/edit_fun"
+            }, {
+                id: 307,
+                pId: 3,
+                name: "异步加载 & 编辑功能 共存",
+                file: "exedit/async_edit"
+            }, {
+                id: 308,
+                pId: 3,
+                name: "多棵树之间 的 数据交互",
+                file: "exedit/multiTree"
+            },
+
+            {
+                id: 4,
+                pId: 0,
+                name: "大数据量 演示",
+                open: false
+            }, {
+                id: 401,
+                pId: 4,
+                name: "一次性加载大数据量",
+                file: "bigdata/common"
+            }, {
+                id: 402,
+                pId: 4,
+                name: "分批异步加载大数据量",
+                file: "bigdata/diy_async"
+            }, {
+                id: 403,
+                pId: 4,
+                name: "分批异步加载大数据量",
+                file: "bigdata/page"
+            },
+
+            {
+                id: 5,
+                pId: 0,
+                name: "组合功能 演示",
+                open: false
+            }, {
+                id: 501,
+                pId: 5,
+                name: "冻结根节点",
+                file: "super/oneroot"
+            }, {
+                id: 502,
+                pId: 5,
+                name: "单击展开/折叠节点",
+                file: "super/oneclick"
+            }, {
+                id: 503,
+                pId: 5,
+                name: "保持展开单一路径",
+                file: "super/singlepath"
+            }, {
+                id: 504,
+                pId: 5,
+                name: "添加 自定义控件",
+                file: "super/diydom"
+            }, {
+                id: 505,
+                pId: 5,
+                name: "checkbox / radio 共存",
+                file: "super/checkbox_radio"
+            }, {
+                id: 506,
+                pId: 5,
+                name: "左侧菜单",
+                file: "super/left_menu"
+            }, {
+                id: 513,
+                pId: 5,
+                name: "OutLook 样式的左侧菜单",
+                file: "super/left_menuForOutLook"
+            }, {
+                id: 507,
+                pId: 5,
+                name: "下拉菜单",
+                file: "super/select_menu"
+            }, {
+                id: 509,
+                pId: 5,
+                name: "带 checkbox 的多选下拉菜单",
+                file: "super/select_menu_checkbox"
+            }, {
+                id: 510,
+                pId: 5,
+                name: "带 radio 的单选下拉菜单",
+                file: "super/select_menu_radio"
+            }, {
+                id: 508,
+                pId: 5,
+                name: "右键菜单 的 实现",
+                file: "super/rightClickMenu"
+            }, {
+                id: 511,
+                pId: 5,
+                name: "与其他 DOM 拖拽互动",
+                file: "super/dragWithOther"
+            }, {
+                id: 512,
+                pId: 5,
+                name: "异步加载模式下全部展开",
+                file: "super/asyncForAll"
+            },
+
+            {
+                id: 6,
+                pId: 0,
+                name: "其他扩展功能 演示",
+                open: false
+            }, {
+                id: 601,
+                pId: 6,
+                name: "隐藏普通节点",
+                file: "exhide/common"
+            }, {
+                id: 602,
+                pId: 6,
+                name: "配合 checkbox 的隐藏",
+                file: "exhide/checkbox"
+            }, {
+                id: 603,
+                pId: 6,
+                name: "配合 radio 的隐藏",
+                file: "exhide/radio"
+            }
+        ];
+
+        $(document).ready(function() {
+            var t = $("#tree");
+            t = $.fn.zTree.init(t, setting, zNodes);
+            demoIframe = $("#testIframe");
+            demoIframe.bind("load", loadReady);
+            var zTree = $.fn.zTree.getZTreeObj("tree");
+            zTree.selectNode(zTree.getNodeByParam("id", 101));
+
+            var tt = $("#trees");
+            tt = $.fn.zTree.init(tt, setting, zNodes);
+            demoIframe = $("#testIframe");
+            demoIframe.bind("load", loadReady);
+            var zTree = $.fn.zTree.getZTreeObj("tree");
+            zTree.selectNode(zTree.getNodeByParam("id", 101));
+
+        });
+
+        function loadReady() {
+            var bodyH = demoIframe.contents().find("body").get(0).scrollHeight,
+                htmlH = demoIframe.contents().find("html").get(0).scrollHeight,
+                maxH = Math.max(bodyH, htmlH),
+                minH = Math.min(bodyH, htmlH),
+                h = demoIframe.height() >= maxH ? minH : maxH;
+            if (h < 530) h = 530;
+            demoIframe.height(h);
+        }
+
+        $('#example2').DataTable({
+            "paging": true,
+            "lengthChange": false,
+            "searching": false,
+            "ordering": false,
+            "info": true,
+            "autoWidth": false
+        });
+
+    });
+    </script>
+</body>
+
+</html>

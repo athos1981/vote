@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>My first Vue app</title>
+  
+  
+ <link href="bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+  <script src="vue-resource.js"></script>  
+</head>
+<body>
+
+
+
+<table class="table table-striped table-bordered table-hover table-condensed"> 
+<caption>基本的表格布局</caption>                        
+<thead>                           
+ <tr>                                <th>序号</th>                                
+ <th>书名</th>                                <th>作者</th>                               
+  <th>价格</th>                                <th>操作</th>                           
+   </tr>                        </thead>
+   
+ <tbody>                 
+              <tr v-for="book in books|orberBy sortparam"> 
+<td class="active"  class="text-right" @click="sortBy('id')">{{book.id}}</td>                               
+ <td class="success" class="text-right" @click="sortBy('name')">{{book.name}}</td>                                
+<td class="warning"  class="text-right" @click="sortBy('author')">{{book.author}}</td>          
+ <td class="danger" class="text-right" @click="sortBy('price')">{{book.price}}</td>       
+ <td class="text-center">  
+ </tr>      
+ </tbody>
+ </table>
+  <div id="app">
+  
+    {{ message }}
+	
+		
+	  <span v-bind:title="message">
+		鼠标悬停几秒钟查看此处动态绑定的提示信息！
+	  </span>
+		
+		
+		
+	<p v-if="seen">现在你看到我了</p>
+	
+	
+	<ol>
+    <li v-for="todo in todos">
+      {{ todo.text }}
+    </li>
+	
+	
+	 <button v-on:click="reverseMessage">逆转消息</button>
+  </ol>
+  
+  
+  <input v-model="message">
+  
+  
+
+  
+   <ol>
+    <!--
+      现在我们为每个 todo-item 提供 todo 对象
+      todo 对象是变量，即其内容可以是动态的。
+      我们也需要为每个组件提供一个“key”，晚些时候我们会做个解释。
+    -->
+    <todo-item
+      v-for="item in groceryList"
+      v-bind:todo="item"
+      v-bind:key="item.id">
+    </todo-item>
+  </ol>
+  
+  
+  <li v-for="bs in gridData">
+      {{ bs }}
+    </li>
+ <button v-on:click="findmatch">获取数据</button>
+  
+  
+  
+  
+  </div>
+
+  <script>
+ 
+    var app = new Vue({
+      el: '#app',
+      data: {
+        message: 'Hello Vue!',
+		seen: true,
+		todos: [
+		  { text: '学习 JavaScript' },
+		  { text: '学习 Vue' },
+		  { text: '整个牛项目' }
+		],
+		groceryList: [
+		  { id: 0, text: '蔬菜' },
+		  { id: 1, text: '奶酪' },
+		  { id: 2, text: '随便其他什么人吃的东西' }
+		],
+		gridData: '',
+      },
+	  methods: {
+		reverseMessage: function () {
+		  this.message = this.message.split('').reverse().join('')
+		},
+		//HTTP请求数据
+		findmatch: function() {
+			this.$http.get('file://./findmatch.json').then(
+				function(res){
+					console.log(res);  
+					this.$set('gridData', res.data);
+				},
+				function(response){
+					// 响应错误回调
+					console.log('wrong');  
+					console.log(response);  
+				}
+			)
+		},
+	  }
+    })
+	app.todos.push({ text: '新项目' })
+
+	
+	// 定义名为 todo-item 的新组件
+	Vue.component('todo-item', {
+	// todo-item 组件现在接受一个
+  // "prop"，类似于一个自定义属性
+  // 这个属性名为 todo。
+  props: ['todo'],
+  template: '<li>这是个待办项{{ todo.text }}</li>'
+	})
+  </script>
+</body>
+</html>

@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>团队迭代子任务详情页</title>
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <link rel="stylesheet" href="admin/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="admin/css/font-awesome.min.css">
+    <link rel="stylesheet" href="admin/css/ionicons.min.css">
+    <link rel="stylesheet" href="admin/plugins/select2/select2.min.css">
+    <link rel="stylesheet" href="admin/dist/css/AdminLTE.css">
+    <link rel="stylesheet" href="admin/plugins/ztree/metro.css">
+    <link rel="stylesheet" href="admin/dist/css/skins/_all-skins.min.css">
+    <link rel="stylesheet" href="admin/css/data-common.css">
+    <!-- DataTables -->
+    <link rel="stylesheet" href="admin/plugins/datatables/dataTables.bootstrap.css">
+    <!--[if IE]>
+      <script src="js/html5shiv.js"></script>
+      <script src="js/excanvas.js"></script>
+      <script src="js/respond.min.js"></script>
+  <![endif]-->
+    <!--[if lte IE 7]>
+    <script type="text/javascript">
+        window.location.href = 'close-ie.html';
+    </script>
+  <![endif]-->
+</head>
+
+<body class="skin-blue sidebar-mini">
+    <div class="wrapper">
+        <!-- Content Wrapper. Contains page content -->
+        <div class="content-wrapper" style="margin-left:0;">
+            <!-- Content Header (Page header) -->
+            <section class="content">
+                <div class="row">
+                    <div class="col-xs-12">
+                        <div class="box-header nop">
+                            <h4 class="textplace-right nop">当前迭代：V5.22（219-303）</h4>                           
+                        </div>
+                        <div class="box box-primary">
+                            <div class="box-body">
+                                <table id="example2" class="table table-bordered table-hover table-striped">
+                                    <thead>
+                                        <tr>
+                                            <th>JIRA编号</th>
+                                            <th>子任务</th>
+                                            <th>产品</th>
+                                            <th>开发人员</th>
+                                            <th>所属团队</th>
+                                            <th>状态</th>
+                                            <th>当前经办人</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>BYT-111</td>
+                                            <td>故事随便写</td>
+                                            <td>全球购</td>
+                                            <td>李定军</td>
+                                            <td>会员中台</td>
+                                            <td>待测试</td>
+                                            <td>徐松</td>
+                                        </tr>
+                                        <tr>
+                                            <td>BYT-111</td>
+                                            <td>故事随便写</td>
+                                            <td>全球购</td>
+                                            <td>李定军</td>
+                                            <td>会员中台</td>
+                                            <td>待测试</td>
+                                            <td>徐松</td>
+                                        </tr>
+                                        <tr>
+                                            <td>BYT-111</td>
+                                            <td>故事随便写</td>
+                                            <td>全球购</td>
+                                            <td>李定军</td>
+                                            <td>会员中台</td>
+                                            <td>待测试</td>
+                                            <td>徐松</td>
+                                        </tr>
+                                        <tr>
+                                            <td>BYT-111</td>
+                                            <td>故事随便写</td>
+                                            <td>全球购</td>
+                                            <td>李定军</td>
+                                            <td>会员中台</td>
+                                            <td>待测试</td>
+                                            <td>徐松</td>
+                                        </tr>
+                                        <tr>
+                                            <td>BYT-111</td>
+                                            <td>故事随便写</td>
+                                            <td>全球购</td>
+                                            <td>李定军</td>
+                                            <td>会员中台</td>
+                                            <td>待测试</td>
+                                            <td>徐松</td>
+                                        </tr>
+                                        <tr>
+                                            <td>BYT-111</td>
+                                            <td>故事随便写</td>
+                                            <td>全球购</td>
+                                            <td>李定军</td>
+                                            <td>会员中台</td>
+                                            <td>待测试</td>
+                                            <td>徐松</td>
+                                        </tr>
+                                        <tr>
+                                            <td>BYT-111</td>
+                                            <td>故事随便写</td>
+                                            <td>全球购</td>
+                                            <td>李定军</td>
+                                            <td>会员中台</td>
+                                            <td>待测试</td>
+                                            <td>徐松</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <!-- /.box-body -->
+                        </div>
+                        <!-- /.box -->
+                    </div>
+                    <!-- /.col -->
+                </div>
+                <!-- /.row -->
+        </div>
+        <!-- /.nav-tabs-custom -->
+        </section>
+        <!-- /.content -->
+    </div>
+    <!-- /.content-wrapper -->
+    </div>
+    <!-- jQuery 2.2.3 -->
+    <script src="admin/plugins/jQuery/jquery-2.2.3.min.js"></script>
+    <!-- Bootstrap 3.3.6 -->
+    <script src="admin/bootstrap/js/bootstrap.min.js"></script>
+    <!-- AdminLTE App -->
+    <script src="admin/dist/js/app.min.js"></script>
+    <!-- DataTables -->
+    <script src="admin/plugins/datatables/jquery.dataTables.min.js"></script>
+    <script src="admin/plugins/datatables/dataTables.bootstrap.min.js"></script>
+    <script type="text/javascript">
+    $(function() {
+                $('#example2').DataTable({
+                    "paging": true,
+                    "lengthChange": false,
+                    "searching": false,
+                    "ordering": false,
+                    "info": true,
+                    "autoWidth": false
+                });
+    </script>
+</body>
+
+</html>

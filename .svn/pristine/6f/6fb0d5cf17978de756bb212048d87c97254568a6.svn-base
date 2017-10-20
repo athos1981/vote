@@ -1,0 +1,115 @@
+package com.bl.vote.controller;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.bl.vote.domain.Option;
+import com.bl.vote.domain.Poll;
+import com.bl.vote.service.VoteService;
+
+@RestController
+public class VoteController {
+	
+	@Autowired
+	private VoteService voteService;
+	
+	/**
+	 * 查询所有问题
+	 * @return
+	 */
+	@RequestMapping("/findPoll")
+	public Iterable<Poll>  findAll(){
+		return voteService.findAll();
+	}
+	
+	/**
+	 * 新增问题
+	 * @param content
+	 * @return
+	 */
+	@RequestMapping(value="/addPoll", method=RequestMethod.POST)
+	public long  addPoll (@RequestParam(value="content", required=false) String content){
+     return voteService.addPoll(content);
+	}
+	
+	/**
+	 * 传问题编号获取答案
+	 * @param pollId
+	 * @return
+	 */
+	@RequestMapping(value="/findOption/{pollId}", method=RequestMethod.GET)
+	public  List<Option> findOptionByPollId(@PathVariable String pollId){
+     return voteService.findOptionByPollId(pollId);
+	}
+	
+	/**
+	 * 新增答案
+	 * @param pollId
+	 * @param content
+	 * @return
+	 */
+	@RequestMapping(value="/addOption", method=RequestMethod.POST)
+	public long addOption (@RequestParam(value="pollId", required=false) long pollId,@RequestParam(value="content", required=false) String content){
+     return voteService.addOption(pollId, content);
+	}
+	
+	/**
+	 * 删除答案
+	 * @param id
+	 */
+	@RequestMapping(value="/deleteOption", method=RequestMethod.POST)
+	public String deleteOptionById (@RequestParam(value="id", required=false) long id){
+        voteService.deleteOptionById(id);
+        return "delete Success";
+	}
+	
+	
+	/**
+	 * 修改答案
+	 * @param optionId
+	 * @param content
+	 * @return
+	 */
+	@RequestMapping(value="/editOption", method=RequestMethod.POST)
+	public long editOption (@RequestParam(value="id", required=false) long id,@RequestParam(value="pollId", required=false) long pollId,@RequestParam(value="content", required=false) String content){
+     return voteService.editOption(id,pollId,content);
+	}
+	
+	
+	/**
+	 * 新增投票
+	 * @param optionId
+	 * @return
+	 */
+	@RequestMapping(value="/addVote", method=RequestMethod.POST)
+	public String addVote(@RequestParam(value="optionId", required=false) long optionId){
+     return voteService.addVote(optionId);
+	}
+	
+	
+	
+	/**
+	 * 查询投票结果，by选项编号
+	 * @param OptionId
+	 * @return
+	 */
+	@RequestMapping(value="/VoteCot/{OptionId}", method=RequestMethod.GET)
+	public  int getVoteCot(@PathVariable String OptionId){
+     return voteService.getVoteCot(OptionId);
+	
+	
+	
+
+	}
+	
+	
+	
+	
+
+}
