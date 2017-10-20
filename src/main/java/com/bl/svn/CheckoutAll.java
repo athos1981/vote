@@ -26,7 +26,7 @@ public class CheckoutAll {
 		SVNRepository repository;
 		try {
 			repository = SVNRepositoryFactory.create(SVNURL.parseURIEncoded("svn://192.168.29.100/depot"));
-
+ 
 			// 身份验证
 			ISVNAuthenticationManager authManager = SVNWCUtil.createDefaultAuthenticationManager("anzhiling",
 					"anzhiling3097");
